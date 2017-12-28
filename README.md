@@ -1,6 +1,8 @@
 # hadhari-project
 
 hadhari* nm [i-/zi-] caution, prudence, precaution, vigilance. tahadhari kt. (Kar)
-________________________________
+#
 
-Hadhari Project. A web app that facilitates online mapping of road incidence and advance predictions using Machine Learning through collection &amp; processing of past and real time data.
+Hadhari Project. A web app that uses deep learning — the machine learning technique in AI — to facilitate online mapping of road accidents, incidence and advance predictions while using big data through collection &amp; processing of past and real time data.
+
+
