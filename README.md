@@ -1,5 +1,4 @@
 # hadhari-project
-________________________________
 
 hadhari* nm [i-/zi-] caution, prudence, precaution, vigilance. tahadhari kt. (Kar)
 ________________________________
