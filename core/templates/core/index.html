@@ -1,0 +1,720 @@
+{% extends 'web/layout.html' %}
+{% load staticfiles %}
+{% block content %}
+
+
+
+    <!-- Preloader -->
+    <div class="preloader">
+      <div class="spinner-dots">
+        <span class="dot1"></span>
+        <span class="dot2"></span>
+        <span class="dot3"></span>
+      </div>
+    </div>
+
+    <!-- Main container -->
+    <main class="main-container">
+
+
+      <!-- Page aside -->
+      <aside class="aside aside-expand-md">
+        <div class="aside-body">
+          <ul class="nav nav-lg nav-pills flex-column">
+            <li class="nav-item active">
+              <i class="fa fa-users"></i>
+              <a class="nav-link" href="#">All</a>
+                <span class="badge badge-pill badge-default">{{ accounts.count }}</span>
+            </li>
+
+            <li class="nav-item">
+              <i class="fa fa-user"></i>
+              <a class="nav-link" href="#">New</a>
+              <span class="badge badge-pill badge-default">6</span>
+            </li>
+
+            <li class="nav-item">
+              <i class="fa fa-user-times"></i>
+              <a class="nav-link" href="#">Disabled</a>
+            </li>
+          </ul>
+
+
+          <hr>
+
+
+          <div class="aside-block">
+            <div class="flexbox align-items-center mb-1">
+              <h6 class="aside-title fs-13">Groups</h6>
+              <a class="float-right text-lighter hover-success" href="#" data-provide="tooltip" data-title="Create New Group" data-toggle="modal" data-target="#modal-add-group"><i class="ti-plus"></i></a>
+            </div>
+
+            <ul class="nav flex-column">
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <span class="badge badge-ring badge-danger"></span>
+                  <span>Management</span>
+                </a>
+                <a class="nav-action hover-info" href="#" data-provide="tooltip" data-title="Edit"><span class="ti-pencil"></span></a>
+                <a class="nav-action hover-danger delete-group" href="#" data-provide="tooltip" data-title="Remove"><span class="ti-close"></span></a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <span class="badge badge-ring badge-warning"></span>
+                  <span>Publisher</span>
+                </a>
+                <a class="nav-action hover-info" href="#" data-provide="tooltip" data-title="Edit"><span class="ti-pencil"></span></a>
+                <a class="nav-action hover-danger delete-group" href="#" data-provide="tooltip" data-title="Remove"><span class="ti-close"></span></a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <span class="badge badge-ring badge-info"></span>
+                  <span>Moderator</span>
+                </a>
+                <a class="nav-action hover-info" href="#" data-provide="tooltip" data-title="Edit"><span class="ti-pencil"></span></a>
+                <a class="nav-action hover-danger delete-group" href="#" data-provide="tooltip" data-title="Remove"><span class="ti-close"></span></a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <span class="badge badge-ring badge-purple"></span>
+                  <span>Customer</span>
+                </a>
+                <a class="nav-action hover-info" href="#" data-provide="tooltip" data-title="Edit"><span class="ti-pencil"></span></a>
+                <a class="nav-action hover-danger delete-group" href="#" data-provide="tooltip" data-title="Remove"><span class="ti-close"></span></a>
+              </li>
+            </ul>
+          </div>
+
+
+        </div>
+
+        <button class="aside-toggler"></button>
+      </aside>
+      <!-- END Page aside -->
+
+
+      <div class="main-content">
+
+        <div class="media-list media-list-divided media-list-hover" data-provide="selectall">
+
+          <header class="flexbox align-items-center media-list-header bg-transparent b-0 py-16 pl-20">
+            <div class="flexbox align-items-center">
+              <label class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input">
+                <span class="custom-control-indicator"></span>
+              </label>
+
+              <span class="divider-line mx-1"></span>
+
+              <div class="dropdown">
+                <a class="btn btn-sm dropdown-toggle" data-toggle="dropdown" href="#">Move to</a>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item" href="#"><span class="badge badge-ring badge-danger mr-1"></span> Admin</a>
+                  <a class="dropdown-item" href="#"><span class="badge badge-ring badge-warning mr-1"></span> Publisher</a>
+                  <a class="dropdown-item" href="#"><span class="badge badge-ring badge-info mr-1"></span> Moderator</a>
+                  <a class="dropdown-item" href="#"><span class="badge badge-ring badge-purple mr-1"></span> Customer</a>
+                </div>
+              </div>
+
+              <div class="dropdown d-none d-sm-block">
+                <a class="btn btn-sm dropdown-toggle" data-toggle="dropdown" href="#">Sort by</a>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item" href="#">Date</a>
+                  <a class="dropdown-item" href="#">Name</a>
+                  <a class="dropdown-item" href="#">Group</a>
+                  <a class="dropdown-item" href="#">Popular</a>
+                </div>
+              </div>
+
+            </div>
+
+            <div>
+              <div class="lookup lookup-circle lookup-right">
+                <input type="text" data-provide="media-search">
+              </div>
+            </div>
+          </header>
+
+
+          <div class="media-list-body bg-white b-1">
+              {% for account in accounts %}
+                  <div class="media align-items-center">
+                  <label class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input">
+                    <span class="custom-control-indicator"></span>
+                  </label>
+
+                  <label class="toggler ml-20 fs-16">
+                    <input type="checkbox">
+                    <i class="fa fa-star"></i>
+                  </label>
+
+                  <span class="badge badge-dot badge-danger"></span>
+
+                  <a class="flexbox flex-grow gap-items text-truncate" href="#qv-user-details" data-toggle="quickview">
+                    <img class="avatar" src="../assets/img/avatar/1.jpg" alt="...">
+
+                    <div class="media-body text-truncate">
+                      <h6>{{ account.full_name }}</h6>
+                      <small>
+                        <span>{{ account.email }}</span>
+                        <span class="divider-dash">(123) 456-7980</span>
+                      </small>
+                    </div>
+                  </a>
+
+                  <div class="dropdown">
+                    <a class="text-lighter" href="#" data-toggle="dropdown"><i class="ti-more-alt rotate-90"></i></a>
+                    <div class="dropdown-menu dropdown-menu-right">
+                      <a class="dropdown-item" href="#"><i class="fa fa-fw fa-phone"></i> Call</a>
+                      <a class="dropdown-item" href="#"><i class="fa fa-fw fa-commenting"></i> Message</a>
+                      <a class="dropdown-item" href="#"><i class="fa fa-fw fa-envelope"></i> Email</a>
+                      <div class="dropdown-divider"></div>
+                      <a class="dropdown-item" href="#"><i class="fa fa-fw fa-trash"></i> Delete</a>
+                    </div>
+                  </div>
+            </div>
+              {% endfor %}
+
+            <div class="media align-items-center">
+              <label class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input">
+                <span class="custom-control-indicator"></span>
+              </label>
+
+              <label class="toggler ml-20 fs-16">
+                <input type="checkbox">
+                <i class="fa fa-star"></i>
+              </label>
+
+              <span class="badge badge-dot badge-danger"></span>
+
+              <a class="flexbox flex-grow gap-items text-truncate" href="#qv-user-details" data-toggle="quickview">
+                <img class="avatar" src="../assets/img/avatar/1.jpg" alt="...">
+
+                <div class="media-body text-truncate">
+                  <h6>Maryam Amiri</h6>
+                  <small>
+                    <span>maryam.amiri@gmail.com</span>
+                    <span class="divider-dash">(123) 456-7980</span>
+                  </small>
+                </div>
+              </a>
+
+              <div class="dropdown">
+                <a class="text-lighter" href="#" data-toggle="dropdown"><i class="ti-more-alt rotate-90"></i></a>
+                <div class="dropdown-menu dropdown-menu-right">
+                  <a class="dropdown-item" href="#"><i class="fa fa-fw fa-phone"></i> Call</a>
+                  <a class="dropdown-item" href="#"><i class="fa fa-fw fa-commenting"></i> Message</a>
+                  <a class="dropdown-item" href="#"><i class="fa fa-fw fa-envelope"></i> Email</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="#"><i class="fa fa-fw fa-trash"></i> Delete</a>
+                </div>
+              </div>
+            </div>
+
+
+
+            <div class="media align-items-center">
+              <label class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input">
+                <span class="custom-control-indicator"></span>
+              </label>
+
+              <label class="toggler ml-20 fs-16">
+                <input type="checkbox">
+                <i class="fa fa-star"></i>
+              </label>
+
+              <span class="badge badge-dot badge-danger opacity-0"></span>
+
+              <a class="flexbox flex-grow gap-items text-truncate" href="#qv-user-details" data-toggle="quickview">
+                <img class="avatar" src="../assets/img/avatar/2.jpg" alt="...">
+
+                <div class="media-body text-truncate">
+                  <h6>Hossein Shams</h6>
+                  <small>
+                    <span>hossein.shams@yahoo.com</span>
+                    <span class="divider-dash">(256) 875-6579</span>
+                  </small>
+                </div>
+              </a>
+
+              <div class="dropdown">
+                <a class="text-lighter" href="#" data-toggle="dropdown"><i class="ti-more-alt rotate-90"></i></a>
+                <div class="dropdown-menu dropdown-menu-right">
+                  <a class="dropdown-item" href="#"><i class="fa fa-fw fa-phone"></i> Call</a>
+                  <a class="dropdown-item" href="#"><i class="fa fa-fw fa-commenting"></i> Message</a>
+                  <a class="dropdown-item" href="#"><i class="fa fa-fw fa-envelope"></i> Email</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="#"><i class="fa fa-fw fa-trash"></i> Delete</a>
+                </div>
+              </div>
+            </div>
+
+
+
+            <div class="media align-items-center">
+              <label class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input">
+                <span class="custom-control-indicator"></span>
+              </label>
+
+              <label class="toggler ml-20 fs-16">
+                <input type="checkbox" checked>
+                <i class="fa fa-star"></i>
+              </label>
+
+              <span class="badge badge-dot badge-warning"></span>
+
+              <a class="flexbox flex-grow gap-items text-truncate" href="#qv-user-details" data-toggle="quickview">
+                <img class="avatar" src="../assets/img/avatar/3.jpg" alt="...">
+
+                <div class="media-body text-truncate">
+                  <h6>Sarah Conner</h6>
+                  <small>
+                    <span>sarah.conner84@gmail.com</span>
+                    <span class="divider-dash">(325) 987-6541</span>
+                  </small>
+                </div>
+              </a>
+
+              <div class="dropdown">
+                <a class="text-lighter" href="#" data-toggle="dropdown"><i class="ti-more-alt rotate-90"></i></a>
+                <div class="dropdown-menu dropdown-menu-right">
+                  <a class="dropdown-item" href="#"><i class="fa fa-fw fa-phone"></i> Call</a>
+                  <a class="dropdown-item" href="#"><i class="fa fa-fw fa-commenting"></i> Message</a>
+                  <a class="dropdown-item" href="#"><i class="fa fa-fw fa-envelope"></i> Email</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="#"><i class="fa fa-fw fa-trash"></i> Delete</a>
+                </div>
+              </div>
+            </div>
+
+
+
+
+            <div class="media align-items-center">
+              <label class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input">
+                <span class="custom-control-indicator"></span>
+              </label>
+
+              <label class="toggler ml-20 fs-16">
+                <input type="checkbox" checked>
+                <i class="fa fa-star"></i>
+              </label>
+
+              <span class="badge badge-dot badge-danger opacity-0"></span>
+
+              <a class="flexbox flex-grow gap-items text-truncate" href="#qv-user-details" data-toggle="quickview">
+                <img class="avatar" src="../assets/img/avatar/4.jpg" alt="...">
+
+                <div class="media-body text-truncate">
+                  <h6>Frank Camly</h6>
+                  <small>
+                    <span>f.camly@hotmail.com</span>
+                    <span class="divider-dash">(986) 355-3125</span>
+                  </small>
+                </div>
+              </a>
+
+              <div class="dropdown">
+                <a class="text-lighter" href="#" data-toggle="dropdown"><i class="ti-more-alt rotate-90"></i></a>
+                <div class="dropdown-menu dropdown-menu-right">
+                  <a class="dropdown-item" href="#"><i class="fa fa-fw fa-phone"></i> Call</a>
+                  <a class="dropdown-item" href="#"><i class="fa fa-fw fa-commenting"></i> Message</a>
+                  <a class="dropdown-item" href="#"><i class="fa fa-fw fa-envelope"></i> Email</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="#"><i class="fa fa-fw fa-trash"></i> Delete</a>
+                </div>
+              </div>
+            </div>
+
+
+
+
+            <div class="media align-items-center">
+              <label class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input">
+                <span class="custom-control-indicator"></span>
+              </label>
+
+              <label class="toggler ml-20 fs-16">
+                <input type="checkbox">
+                <i class="fa fa-star"></i>
+              </label>
+
+              <span class="badge badge-dot badge-info"></span>
+
+              <a class="flexbox flex-grow gap-items text-truncate" href="#qv-user-details" data-toggle="quickview">
+                <img class="avatar" src="../assets/img/avatar/default.jpg" alt="...">
+
+                <div class="media-body text-truncate">
+                  <h6>Garret Gloss</h6>
+                  <small>
+                    <span>garret.gloss24@gmail.com</span>
+                    <span class="divider-dash">(321) 456-7980</span>
+                  </small>
+                </div>
+              </a>
+
+              <div class="dropdown">
+                <a class="text-lighter" href="#" data-toggle="dropdown"><i class="ti-more-alt rotate-90"></i></a>
+                <div class="dropdown-menu dropdown-menu-right">
+                  <a class="dropdown-item" href="#"><i class="fa fa-fw fa-phone"></i> Call</a>
+                  <a class="dropdown-item" href="#"><i class="fa fa-fw fa-commenting"></i> Message</a>
+                  <a class="dropdown-item" href="#"><i class="fa fa-fw fa-envelope"></i> Email</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="#"><i class="fa fa-fw fa-trash"></i> Delete</a>
+                </div>
+              </div>
+            </div>
+
+
+
+
+            <div class="media align-items-center">
+              <label class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input">
+                <span class="custom-control-indicator"></span>
+              </label>
+
+              <label class="toggler ml-20 fs-16">
+                <input type="checkbox">
+                <i class="fa fa-star"></i>
+              </label>
+
+              <span class="badge badge-dot badge-info"></span>
+
+              <a class="flexbox flex-grow gap-items text-truncate" href="#qv-user-details" data-toggle="quickview">
+                <img class="avatar" src="../assets/img/avatar/5.jpg" alt="...">
+
+                <div class="media-body text-truncate">
+                  <h6>Bobby Mincy</h6>
+                  <small>
+                    <span>bob.minc@gmail.com</span>
+                    <span class="divider-dash">(695) 123-3698</span>
+                  </small>
+                </div>
+              </a>
+
+              <div class="dropdown">
+                <a class="text-lighter" href="#" data-toggle="dropdown"><i class="ti-more-alt rotate-90"></i></a>
+                <div class="dropdown-menu dropdown-menu-right">
+                  <a class="dropdown-item" href="#"><i class="fa fa-fw fa-phone"></i> Call</a>
+                  <a class="dropdown-item" href="#"><i class="fa fa-fw fa-commenting"></i> Message</a>
+                  <a class="dropdown-item" href="#"><i class="fa fa-fw fa-envelope"></i> Email</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="#"><i class="fa fa-fw fa-trash"></i> Delete</a>
+                </div>
+              </div>
+            </div>
+
+
+
+
+            <div class="media align-items-center">
+              <label class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input">
+                <span class="custom-control-indicator"></span>
+              </label>
+
+              <label class="toggler ml-20 fs-16">
+                <input type="checkbox" checked>
+                <i class="fa fa-star"></i>
+              </label>
+
+              <span class="badge badge-dot badge-danger opacity-0"></span>
+
+              <a class="flexbox flex-grow gap-items text-truncate" href="#qv-user-details" data-toggle="quickview">
+                <img class="avatar" src="../assets/img/avatar/6.jpg" alt="...">
+
+                <div class="media-body text-truncate">
+                  <h6>Garry Camara</h6>
+                  <small>
+                    <span>garry.camara@gmail.com</span>
+                    <span class="divider-dash">(698) 986-3651</span>
+                  </small>
+                </div>
+              </a>
+
+              <div class="dropdown">
+                <a class="text-lighter" href="#" data-toggle="dropdown"><i class="ti-more-alt rotate-90"></i></a>
+                <div class="dropdown-menu dropdown-menu-right">
+                  <a class="dropdown-item" href="#"><i class="fa fa-fw fa-phone"></i> Call</a>
+                  <a class="dropdown-item" href="#"><i class="fa fa-fw fa-commenting"></i> Message</a>
+                  <a class="dropdown-item" href="#"><i class="fa fa-fw fa-envelope"></i> Email</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="#"><i class="fa fa-fw fa-trash"></i> Delete</a>
+                </div>
+              </div>
+            </div>
+
+
+
+
+            <div class="media align-items-center">
+              <label class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input">
+                <span class="custom-control-indicator"></span>
+              </label>
+
+              <label class="toggler ml-20 fs-16">
+                <input type="checkbox">
+                <i class="fa fa-star"></i>
+              </label>
+
+              <span class="badge badge-dot badge-purple"></span>
+
+              <a class="flexbox flex-grow gap-items text-truncate" href="#qv-user-details" data-toggle="quickview">
+                <img class="avatar" src="../assets/img/avatar/8.jpg" alt="...">
+
+                <div class="media-body text-truncate">
+                  <h6>Fidel Tonn</h6>
+                  <small>
+                    <span>f.tonn@thetheme.io</span>
+                    <span class="divider-dash">(511) 986-3579</span>
+                  </small>
+                </div>
+              </a>
+
+              <div class="dropdown">
+                <a class="text-lighter" href="#" data-toggle="dropdown"><i class="ti-more-alt rotate-90"></i></a>
+                <div class="dropdown-menu dropdown-menu-right">
+                  <a class="dropdown-item" href="#"><i class="fa fa-fw fa-phone"></i> Call</a>
+                  <a class="dropdown-item" href="#"><i class="fa fa-fw fa-commenting"></i> Message</a>
+                  <a class="dropdown-item" href="#"><i class="fa fa-fw fa-envelope"></i> Email</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="#"><i class="fa fa-fw fa-trash"></i> Delete</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <footer class="flexbox align-items-center py-20">
+            <span class="flex-grow text-right text-lighter pr-2">1-10 of 1,853</span>
+            <nav>
+              <a class="btn btn-sm btn-square disabled" href="#"><i class="ti-angle-left"></i></a>
+              <a class="btn btn-sm btn-square" href="#"><i class="ti-angle-right"></i></a>
+            </nav>
+          </footer>
+
+        </div>
+
+
+      </div><!--/.main-content -->
+
+    </main>
+    <!-- END Main container -->
+
+
+    <div class="fab fab-fixed">
+      <a class="btn btn-float btn-primary" href="#dock-new-user" title="New User" data-provide="tooltip" data-toggle="dock"><i class="ti-plus"></i></a>
+    </div>
+
+
+
+    <!-- Modal - Add new group -->
+    <div class="modal modal-top fade" id="modal-add-group" tabindex="-1">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          <div class="modal-body pt-30">
+            <input class="form-control" type="text" placeholder="Group name">
+            <br>
+            <div class="text-center">
+              <div class="color-selector color-selector-sm">
+                <label>
+                  <input type="radio" name="color-group" checked>
+                  <span class="bg-primary"></span>
+                </label>
+
+                <label>
+                  <input type="radio" name="color-group">
+                  <span class="bg-success"></span>
+                </label>
+
+                <label>
+                  <input type="radio" name="color-group">
+                  <span class="bg-info"></span>
+                </label>
+
+                <label>
+                  <input type="radio" name="color-group">
+                  <span class="bg-warning"></span>
+                </label>
+
+                <label>
+                  <input type="radio" name="color-group">
+                  <span class="bg-danger"></span>
+                </label>
+
+                <label>
+                  <input type="radio" name="color-group">
+                  <span class="bg-purple"></span>
+                </label>
+
+                <label>
+                  <input type="radio" name="color-group">
+                  <span class="bg-pink"></span>
+                </label>
+
+                <label>
+                  <input type="radio" name="color-group">
+                  <span class="bg-yellow"></span>
+                </label>
+
+                <label>
+                  <input type="radio" name="color-group">
+                  <span class="bg-brown"></span>
+                </label>
+
+                <label>
+                  <input type="radio" name="color-group">
+                  <span class="bg-dark"></span>
+                </label>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-bold btn-pure btn-secondary" data-dismiss="modal">Cancel</button>
+            <button type="button" class="btn btn-bold btn-pure btn-primary">Add group</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- END Modal - Add new group -->
+
+
+
+    <!-- Quickview - User detail -->
+    <div id="qv-user-details" class="quickview quickview-lg">
+      <div class="quickview-body">
+
+        <div class="card card-inverse bg-img" style="background-image: url(../assets/img/gallery/thumb/2.jpg);">
+          <div class="flexbox px-20 pt-20">
+            <label class="toggler text-white">
+              <input type="checkbox">
+              <i class="fa fa-star"></i>
+            </label>
+
+            <a class="text-white fs-20 lh-1" href="#"><i class="fa fa-trash"></i></a>
+          </div>
+
+          <div class="card-body text-center pb-50">
+            <a href="#">
+              <img class="avatar avatar-xxl avatar-bordered" src="../assets/img/avatar/1.jpg">
+            </a>
+            <h4 class="mt-2 mb-0"><a class="hover-primary text-white" href="#">Maryam Amiri</a></h4>
+            <span><i class="fa fa-map-marker w-20px"></i> San Fransisco</span>
+          </div>
+        </div>
+
+        <div class="quickview-block form-type-material">
+          <div class="form-group">
+            <input type="text" class="form-control" value="Maryame Amiri">
+            <label>Name</label>
+          </div>
+
+          <div class="form-group">
+            <input type="text" class="form-control" value="maryam.amiri@gmail.com">
+            <label>Email Address</label>
+          </div>
+
+          <div class="form-group">
+            <input type="text" class="form-control" value="(123) 456-7890">
+            <label>Phone Number</label>
+          </div>
+
+          <div class="form-group">
+            <input type="text" class="form-control" value="thetheme.io">
+            <label>Website</label>
+          </div>
+
+          <div class="form-group">
+            <input type="text" class="form-control" value="San Fransisco">
+            <label>Location</label>
+          </div>
+        </div>
+      </div>
+
+      <footer class="p-12 text-right">
+        <button class="btn btn-flat btn-secondary" type="button" data-toggle="quickview">Cancel</button>
+        <button class="btn btn-flat btn-primary" type="submit">Save changes</button>
+      </footer>
+    </div>
+    <!-- END Quickview - User detail -->
+
+
+
+
+    <!-- Dock - Add user -->
+    <div class="dock-list">
+
+      <!-- Dock - Compose an email -->
+      <div id="dock-new-user" class="dock dock-sm">
+        <header class="dock-header dock-header-inverse bg-info">
+          <div class="dock-title">
+            <span><i class="fa fa-user"></i></span>
+            <span>New User</span>
+          </div>
+
+          <div class="dock-actions">
+            <span title="Close" data-provide="tooltip" data-dock="close"></span>
+            <span title="Minimize" data-provide="tooltip" data-dock="minimize"></span>
+          </div>
+        </header>
+
+        <div class="dock-body dock-block form-type-material">
+          <div class="form-group">
+            <input type="text" class="form-control">
+            <label>Name</label>
+          </div>
+
+          <div class="form-group">
+            <input type="text" class="form-control">
+            <label>Email Address</label>
+          </div>
+
+          <div class="form-group">
+            <input type="password" class="form-control">
+            <label>Password</label>
+          </div>
+
+          <div class="form-group">
+            <input type="password" class="form-control">
+            <label>Password Again (confirm)</label>
+          </div>
+
+          <div class="form-group">
+            <input type="text" class="form-control">
+            <label>Phone Number</label>
+          </div>
+        </div>
+
+        <footer class="dock-footer text-right">
+          <button class="btn btn-flat btn-secondary" type="button" data-dock="close">Cancel</button>
+          <button class="btn btn-flat btn-primary" type="submit">Create</button>
+        </footer>
+      </div>
+
+    </div>
+    <!-- END Dock - Add user -->
+
+
+
+
+    <!-- Global quickview -->
+    <div id="qv-global" class="quickview" data-url="../assets/data/quickview-global.html">
+      <div class="spinner-linear">
+        <div class="line"></div>
+      </div>
+    </div>
+    <!-- END Global quickview -->
+
+
+{% endblock %}

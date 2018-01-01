@@ -1,0 +1,152 @@
+{% extends 'web/layout.html' %}
+{% load staticfiles %}
+{% block content %}
+
+
+
+      <header class="header header-inverse">
+        <div class="container">
+          <div class="header-info">
+            <div class="left">
+              <br>
+              <h2 class="header-title"><strong>Users</strong> <small class="subtitle">You can see list of all users in this page. Use action buttons to create a new user.</small></h2>
+            </div>
+          </div>
+
+          <div class="header-action">
+            <nav class="nav">
+              <a class="nav-link " href="{% url 'core:users' %}">Users</a>
+              <a class="nav-link " href="{% url 'core:new_user' %}">Add new user</a>
+              <a class="nav-link active" href="{% url 'core:edit_user' %}">Edit user</a>
+            </nav>
+
+            <div class="buttons">
+              <a class="btn btn-primary btn-float" href="{% url 'core:new_user' %} title="Create new user" data-provide="tooltip"><i class="ti-plus"></i></a>
+            </div>
+          </div>
+        </div>
+      </header><!--/.header -->
+
+
+<div class="main-content">
+    <div class="container">
+        <form class="row" method="post" enctype="multipart/form-data">
+
+            <div class="col-md-7 col-xl-8">
+                <div class="card shadow-1">
+                    <h4 class="card-title"><strong>New User</strong> Regisation</h4>
+
+                    <div class="card-body">
+
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                                <label class="require">First Name</label>
+                                <input class="form-control" type="text" name="name">
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <label class="require">Last Name</label>
+                                <input class="form-control" type="text" name="slug">
+                                <!--<small>String to be use in URL</small>-->
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                                <label class="require">Email Address</label>
+                                <input class="form-control" type="text" name="name">
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <label class="require">User Group</label>
+                                <select class="form-control" data-provide="selectpicker">
+                                    <option>Mini Coach</option>
+                                    <option>Program Head</option>
+                                    <option>M & E</option>
+                                    <option>Management</option>
+                                </select>
+                            </div>
+
+                            <!--<div class="row">-->
+                            <div class="form-group col-md-6">
+                                <label class="require">Primary Number</label>
+                                <input class="form-control" type="text" name="name">
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <label class="require">Secondary Number</label>
+                                <input class="form-control" type="text" name="slug">
+                                <!--<small>String to be use in URL</small>-->
+                            </div>
+                            <!--</div>-->
+
+                            <!--<div class="row">-->
+                            <div class="form-group col-md-6">
+                                <label class="require">Home Address</label>
+                                <input class="form-control" type="text" name="name">
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <label class="require">Area of Residence</label>
+                                <input class="form-control" type="text" name="slug">
+                                <!--<small>String to be use in URL</small>-->
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <label for="password">Password</label>
+                                <input type="password" class="form-control" id="password">
+
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <label for="password">Repeat Password</label>
+                                <input type="password" class="form-control" id="password">
+                            </div>
+                        </div>
+
+                        <br>
+
+                        <!----------------------------------------------------------------------------->
+
+                    </div>
+
+                    <footer class="card-footer text-right">
+                        <a class="btn btn-secondary mr-2" href="#">Cancel</a>
+                        <button class="btn btn-primary" type="submit">Submit</button>
+                    </footer>
+
+                </div>
+            </div>
+            <!--</div>-->
+
+            <div class="col-md-5 col-xl-4">
+                <div class="card shadow-1">
+                    <h5 class="card-title">Add a Profile Picture</h5>
+
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6 col-md-push-4 ">
+                                <!--<p><code>.rounded-circle</code></p>-->
+                                <img src="../../assets/img/avatar/1.jpg" alt="..." class="rounded-circle">
+                            </div>
+                        </div>
+                        <div class="input-group file-group">
+
+                            <input type="text" class="form-control file-value" placeholder="Choose file..." readonly>
+                            <input type="file" multiple>
+                            <span class="input-group-btn">
+                      <button class="btn btn-light file-browser" type="button"><i class="fa fa-upload"></i></button>
+                    </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+
+    </form>
+</div>
+</div>
+
+
+
+{% endblock %}

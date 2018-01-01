@@ -1,0 +1,172 @@
+{% extends 'web/layout.html' %}
+{% load i18n %}
+{% load staticfiles %}
+{% block content %}
+
+      <header class="header header-inverse">
+        <div class="container">
+          <div class="header-info">
+            <div class="left">
+              <br>
+              <h2 class="header-title"><strong>Members</strong> <small class="subtitle">You can see list of all members in this page. Use action buttons to make change to them.</small></h2>
+            </div>
+          </div>
+
+          <div class="header-action">
+            <nav class="nav">
+              <a class="nav-link " href="{% url 'core:members' %}">Members</a>
+              <a class="nav-link" href="{% url 'core:new_member' %}">Add a new member</a>
+              <a class="nav-link active" href="{% url 'core:member_details' %}">Member Details</a>
+              <a class="nav-link" href="{% url 'core:edit_member' %}">Edit member</a>
+            </nav>
+
+            <div class="buttons">
+              <a class="btn btn-primary btn-float" href="article-add.html" title="Create new article" data-provide="tooltip"><i class="ti-plus"></i></a>
+            </div>
+          </div>
+        </div>
+      </header><!--/.header -->
+
+<div class="main-content">
+    <div class="container">
+        <form class="row" method="post" enctype="multipart/form-data">
+
+            <div class="col-md-7 col-xl-8">
+                <div class="card shadow-1">
+                    <h4 class="card-title"><strong>New Member</strong> Regisation</h4>
+
+                    <div class="card-body">
+
+                        <!----------------------------------------------------------------->
+
+                        <div class="row">
+                            <div class="form-group col-md-4">
+                                <label class="require">First Name</label>
+{#                                <input class="form-control" type="text" name="name">#}
+                                <p>Lucy </p>
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label class="require">Middle Name</label>
+{#                                <input class="form-control" type="text" name="name">#}
+                                <p>Njoroge</p>
+
+                            </div>
+
+                            <div class="form-group col-md-4">
+                                <label class="require">Last Name</label>
+{#                                <input class="form-control" type="text" name="slug">#}
+                                <!--<small>String to be use in URL</small>-->
+                                <p>Mwaniki</p>
+                            </div>
+
+
+
+                        </div>
+
+                        <hr>
+
+
+                        <div class="row">
+
+                            <div class="form-group col-md-6">
+                                <label class="require">Sex</label>
+{#                                <select class="form-control" data-provide="selectpicker">#}
+{#                                    <option>Female</option>#}
+{#                                    <option>Male</option>#}
+{#                                </select>#}
+                                 <p>Female</p>
+                            </div>
+
+
+                            <div class="form-group col-md-6">
+                                <label class="require">Date of birth</label>
+{#                                <input class="form-control" type="text" name="name">#}
+                                <p>25 January 1999</p>
+                            </div>
+                        </div>
+{#                            {% blocktrans %}<hr>{% endblocktrans %}#}
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                                <label class="require">School / Zone</label>
+{#                                <input class="form-control" type="text" name="name">#}
+                                <p>BuruBuru High School</p>
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <label class="require">Year Joined Box Girls</label>
+{#                                <input class="form-control" type="text" name="name">#}
+                                <p>25 January 2009</p>
+                            </div>
+
+
+                            <!--<div class="row">-->
+                            <div class="form-group col-md-6">
+                                <label class="require">Parent / Guardian</label>
+{#                                <input class="form-control" type="text" name="name">#}
+                                <p>James Mwaniki John</p>
+                            </div>
+
+                            <div class="form-group col-md-6">
+                              <b>  <label class="require">Contact Number</label> </b>
+{#                                <input class="form-control" type="text" name="slug">#}
+                                <!--<small>String to be use in URL</small>-->
+                                <p>+254 712 345 678</p>
+                            </div>
+                            <!--</div>-->
+{#                            {% blocktrans %}<hr>{% endblocktrans %}#}
+                            <hr>
+                            <!--<div class="row">-->
+                            <div class="form-group col-md-6">
+                                <label class="require">Home Address</label>
+{#                                <input class="form-control" type="text" name="name">#}
+                                <p>34 Lions Street Buru Buru Phase 3</p>
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <label class="require">Area of Residence</label>
+{#                                <input class="form-control" type="text" name="slug">#}
+                                <p>Buru Buru Phase 3</p>
+                                <!--<small>String to be use in URL</small>-->
+                            </div>
+                        </div>
+                    </div>
+
+                    <footer class="card-footer text-right">
+{#                        <a class="btn btn-secondary mr-2" href="#">Cancel</a>#}
+                        <button class="btn btn-primary" type="submit">Edit Entry</button>
+                    </footer>
+
+                </div>
+            </div>
+            <!--</div>-->
+
+            <div class="col-md-5 col-xl-4">
+                <div class="card shadow-1">
+                    <h5 class="card-title">Add a Profile Picture</h5>
+
+                    <div class="card-body">
+                        <div class="" style="text-align:  center;">
+                             <div class="centeredx" style="text-align:  center;">
+
+                                <!--<p><code>.rounded-circle</code></p>-->
+                                <img src="{% static 'img/avatar/1.jpg' %}" alt="..." class="rounded-circle">
+                            </div>
+
+                        </div>
+                        <div class="input-group file-group">
+
+                            <input type="text" class="form-control file-value" placeholder="Choose file..." readonly>
+                            <input type="file" multiple>
+                            <span class="input-group-btn">
+                      <button class="btn btn-light file-browser" type="button"><i class="fa fa-upload"></i></button>
+                    </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+
+    </form>
+</div>
+</div>
+{% endblock %}
