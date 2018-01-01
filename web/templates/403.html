@@ -1,0 +1,36 @@
+{% extends 'web/base.html' %}
+{% block title %}
+    <title>Access Denied &mdash; TheAdmin</title>
+{% endblock %}
+
+{% block content %}
+    <div class="row no-margin h-fullscreen" style="padding-top: 10%">
+
+        <div class="col-12">
+            <div class="card card-transparent mx-auto text-center">
+                <h1 class="text-secondary lh-1" style="font-size: 200px">403</h1>
+                <hr class="w-30px">
+                <h3 class="text-uppercase">Forbidden!</h3>
+
+                <p class="lead">Seems you don't have web access.</p>
+                <p class="text-center">MiniCoaches only have app Access.</p>
+
+                <ul class="nav nav-primary nav-dotted nav-dot-separated justify-content-center fs-14">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Report problem</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/logout/">Logout</a>
+                    </li>
+                </ul>
+                <hr class="w-30px">
+
+            </div>
+        </div>
+
+
+        <footer class="col-12 align-self-end text-center fs-13">
+            <p><small>Copyright © 2017 <strong >BoxGirls</strong>. All rights reserved.</small></p>
+        </footer>
+    </div>
+{% endblock %}

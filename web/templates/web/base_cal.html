@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="TheAdmin - Responsive admin and web application ui kit">
+    <meta name="keywords" content="admin, dashboard, web app, sass, ui kit, ui framework, bootstrap">
+
+    <title>BoxGirls - Dashboard</title>
+      {% load staticfiles %}
+    <!-- Styles -->
+    <link href="{% static 'css/core.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/app.min.css' %}" rel="stylesheet">
+
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" href="{% static 'img/apple-touch-icon.png' %}">
+    <link rel="icon" href="{% static 'img/favicon.png' %}">
+  </head>
+
+  <body class="topbar-unfix">
+
+    {% block app %}
+    {% endblock %}
+
+    <!-- Scripts -->
+
+    <!-- Scripts -->
+    <script src="{% static 'js/core.min.js' %}" data-provide="fullcalendar"></script>
+    <script src="{% static 'js/app.min.js' %}"></script>
+    <script src="{% static 'js/script.min.js' %}"></script>
+
+    <script>
+      app.ready(function() {
+
+        var calendar = $('#calendar');
+
+
+
+        /* initialize the calendar
+        -----------------------------------------------------------------*/
+
+        calendar.fullCalendar({
+          header: false,
+          defaultDate: '2017-09-12',
+          editable: true,
+          droppable: true, // this allows things to be dropped onto the calendar
+          navLinks: true, // can click day/week names to navigate views
+          eventLimit: true, // allow "more" link when too many events
+          events: {
+            url: '../assets/data/json/events.json',
+            error: function() {
+              app.toast("Couldn't load events. Please try again later.");
+            }
+          },
+          viewRender: function(view, element) {
+            $('#calendar-title').text( calendar.fullCalendar('getView').title );
+          },
+          dayClick: function(date, jsEvent, view) {
+            $('#modal-add-event').modal('show');
+          },
+          eventClick: function(date, jsEvent, view) {
+            $('#modal-view-event').modal('show');
+          }
+        });
+
+
+
+        /* handle change view
+        -----------------------------------------------------------------*/
+
+        $('[data-calendar-view]').on('click', function(){
+          var view = $(this).data('calendar-view');
+          calendar.fullCalendar('changeView', view);
+
+          makeViewActive($(this));
+        });
+
+        var makeViewActive = function(e) {
+          $(e).closest('.nav').find('.nav-link.active, .dropdown-item.active').removeClass('active');
+          $(e).addClass('active');
+          if ( $(e).hasClass('dropdown-item') ) {
+            $(e).closest('.dropdown').children('.nav-link').addClass('active');
+          }
+        }
+
+
+
+        /* handle caledar actions
+        -----------------------------------------------------------------*/
+
+        $('[data-calendar]').on('click', function(){
+          var action = $(this).data('calendar');
+
+          switch(action) {
+            case 'today':
+              calendar.fullCalendar('today');
+              break;
+
+            case 'next':
+              calendar.fullCalendar('next');
+              break;
+
+            case 'prev':
+              calendar.fullCalendar('prev');
+              break;
+          }
+        });
+
+
+
+        // Once edit button clicked, close the event details modal and open edit modal
+        //
+        $('#open-modal-edit').on('click', function(){
+          $('#modal-view-event').one('hidden.bs.modal', function () {
+            $('#modal-edit-event').modal('show');
+          });
+          $('#modal-view-event').modal('hide');
+        });
+
+      });
+    </script>
+
+
+  </body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="TheAdmin - Responsive admin and web application ui kit">
+    <meta name="keywords" content="admin, dashboard, web app, sass, ui kit, ui framework, bootstrap">
+
+    <title>BoxGirls - Dashboard</title>
+      {% load staticfiles %}
+    <!-- Styles -->
+    <link href="{% static 'css/core.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/app.min.css' %}" rel="stylesheet">
+
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" href="{% static 'img/apple-touch-icon.png' %}">
+    <link rel="icon" href="{% static 'img/favicon.png' %}">
+  </head>
+
+  <body class="topbar-unfix" style="font-family: 'Montserrat', sans-serif;">
+
+    {% block app %}
+    {% endblock %}
+
+    <!-- Scripts -->
+    <script src="{% static 'js/core.min.js' %}"></script>
+    <script src="{% static 'js/app.min.js' %}"></script>
+    <script src="{% static 'js/script.js' %}"></script>
+
+  </body>
+</html>
