@@ -45,10 +45,11 @@ class Account(AbstractBaseUser, PermissionsMixin):
     is_active = models.BooleanField('active', default=True)
 
     SUPER_ADMIN = 1
-    ADMIN = 1
-    VOLUNTEER = 2
-    CLIENTS = 3
-    MANAGEMENT = 4
+    ADMIN = 2
+    MANAGEMENT = 3
+    VOLUNTEER = 4
+    CLIENTS = 5
+
 
     ACCESS_LEVELS = (
         (SUPER_ADMIN, 'Hadhari Super Admin'),
