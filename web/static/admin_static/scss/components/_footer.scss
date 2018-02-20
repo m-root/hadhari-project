@@ -1,0 +1,128 @@
+.footer {
+    background: $footer-bg;
+    color: $footer-color;
+}
+.footer-top {
+    padding: ($spacer * 4) 0;
+}
+.footer-bottom {
+    padding: ($spacer * 1.5) 0;
+    background: $footer-bottom-bg;
+}
+.footer-bottom .copyright {
+    font-size: 0.8rem;
+}
+.footer .heading {
+    color: $footer-color;
+}
+.footer ul.footer-links {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.footer .footer-links > li > a {
+    display: inline-block;
+    padding: 0.25rem 0;
+    font-size: 0.8rem;
+    font-weight: 400; 
+    color: $footer-link-color;
+}
+.footer .footer-links > li > a:hover {
+    color: $footer-link-hover-color;
+}
+.footer .footer-links > li > .footer-link-date {
+    display: block;
+    margin-bottom: 0.5rem;
+}
+.footer p {
+    font-size: $font-size-sm;
+}
+.footer .nav-link {
+    color: $footer-link-color;
+}
+.footer .nav-link:hover {
+    color: $footer-link-hover-color;
+}
+
+.footer .footer-menu {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+.footer .footer-menu > li {
+    display: inline-block;
+    margin-right: $spacer;
+}
+.footer .footer-menu > li > a {
+    display: inline-block;
+    padding: 0.25rem 0.4rem;
+    color: $footer-link-color;
+    font-weight: 500;
+    font-size: $font-size-sm;
+    text-transform: uppercase;
+}
+.footer .footer-menu-sm > li > a {
+    font-size: 0.75rem;
+}
+.footer .footer-menu > li:last-child > a {
+    margin-right: 0;
+}
+.footer .footer-menu > li > a:hover {
+    color: $footer-link-hover-color;
+}
+
+.footer .footer-menu > li.logo-delimiter {
+    padding-left: $spacer * 2;
+    padding-right: $spacer * 2;
+}
+@media(max-width: 991px) {
+    .footer .footer-menu > li.logo-delimiter {
+        display: none;
+    }
+}
+.footer .copy-links {
+    margin: 10px 0 0 0;
+    padding: 0;
+    list-style: none;
+}
+.footer .copy-links li {
+    display: inline-block;
+    margin-right: 10px;
+    font-size: $font-size-sm;
+    color: $gray-600;
+}
+.footer .copy-links li a {
+    color: $gray-600;
+}
+.footer .copy-links li a:hover {
+    text-decoration: underline;
+}
+// Footer: INVERSE
+.footer-inverse {
+    background: invert($footer-bg);
+    color: invert($footer-color);
+}
+.footer-inverse .footer-bottom {
+    background: invert($footer-bottom-bg);
+}
+.footer-inverse .heading {
+    color: invert($footer-color);
+}
+.footer-inverse .footer-links > li > a {
+    color: invert($footer-link-color);
+}
+.footer-inverse .footer-links > li > a:hover {
+    color: invert($footer-link-hover-color);
+}
+.footer-inverse .social-media > li > a > i {
+    color: invert($footer-link-color);
+}
+.footer-inverse .social-media > li > a:hover > i {
+    color: invert($footer-link-hover-color);
+}
+.footer-inverse .footer-menu > li > a {
+    color: invert($footer-link-color);
+}
+.footer-inverse .footer-menu > li > a:hover {
+    color: invert($footer-link-hover-color);
+}

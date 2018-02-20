@@ -1,0 +1,23 @@
+.modal-content {
+    border: 0;
+    @if $enable-rounded {
+        border-radius: $modal-content-border-radius;
+    } @else {
+        border-radius: 0;
+    }  
+}
+
+// Modal colors
+.modal[data-modal-color],
+.modal[data-modal-color] .modal-footer .btn-link,
+.modal[data-modal-color] .modal-title {
+    color: #fff;
+}
+
+
+@each $color, $value in $theme-colors {
+    .modal-#{$color} {
+        @include modal-variant($value);
+    }
+}
+

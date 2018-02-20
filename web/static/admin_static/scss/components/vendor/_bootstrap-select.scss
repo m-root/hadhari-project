@@ -1,0 +1,135 @@
+// Custom styles
+.bootstrap-select:not([class*="col-"]):not([class*="form-control"]):not(.input-group-btn) {
+    width: 100%;
+}
+
+.bootstrap-select .dropdown-toggle {
+    text-align: left;
+}
+
+.bootstrap-select .btn-secondary.bs-placeholder  {
+    color: $input-placeholder-color;
+    font-weight: normal;
+}
+.bootstrap-select .dropdown-toggle.btn-secondary {
+    color: $input-color;
+    background-color: $input-bg;
+    border-color: $input-border-color;
+    text-align: left;
+}
+
+.bootstrap-select .bs-placeholder  {
+    font-weight: normal;
+}
+
+.bootstrap-select .btn-secondary.bs-placeholder  {
+    color: $input-placeholder-color;
+}
+
+.bootstrap-select .dropdown-toggle.btn-secondary:active,
+.bootstrap-select.show > .btn-secondary.dropdown-toggle {
+    background-color: $input-group-addon-bg;
+    color: $input-group-addon-color;
+    border-color: $input-group-addon-border-color;
+    box-shadow: none;
+}
+
+.bootstrap-select .btn svg,
+.bootstrap-select .btn i {
+    margin-right: 0.5rem;
+    color: $gray-600;
+}
+
+// Input group
+.input-group>.input-group-prepend>.bootstrap-select,
+.input-group>.input-group-append>.bootstrap-select {
+    max-width: 100%;
+}
+
+.input-group .bootstrap-select .btn {
+    display: flex;
+    align-items: center;
+    padding: $input-padding-y 2rem $input-padding-y $input-padding-x;
+    margin-bottom: 0;
+    font-size: $font-size-base;
+    font-weight: $font-weight-normal;
+    line-height: $input-line-height;
+    color: $input-group-addon-color;
+    text-align: center;
+    white-space: nowrap;
+    background-color: $input-group-addon-bg;
+    border: $input-border-width solid $input-group-addon-border-color;
+    @include border-radius($input-border-radius);
+}
+
+.input-group>.input-group-prepend>.bootstrap-select>.btn {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.input-group>.input-group-append>.bootstrap-select>.btn {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.focused .bootstrap-select .btn {
+    color: $input-group-addon-focus-color;
+    background-color: $input-group-addon-focus-bg;
+    border-color: $input-group-addon-focus-border-color;
+}
+
+// Dropdown menu
+.bootstrap-select.show>.dropdown-menu>.dropdown-menu {
+    display: block;
+}
+
+.bootstrap-select .dropdown-menu .selected .dropdown-item {
+    color: $primary;
+}
+.bootstrap-select>.dropdown-menu>.dropdown-menu li.hidden {
+    display: none;
+}
+.bootstrap-select.btn-group .dropdown-menu li small {
+    display: block;
+    padding: 0;
+}
+
+.bootstrap-select .dropdown-menu .dropdown-item svg,
+.bootstrap-select .dropdown-menu .selected i {
+    margin-right: 0.5rem;
+    color: $gray-600;
+}
+
+.bootstrap-select>.dropdown-toggle:after {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+// Live search
+.bs-searchbox {
+    padding: 0;
+    margin-bottom: .5rem;
+    margin-top: -.5rem;
+}
+.bootstrap-select .form-control {
+    background-color: transparent;
+    border: 0;
+    border-bottom: 1px solid $gray-200;
+    border-radius: 0;
+}
+.bootstrap-select .check-mark {
+    font-size: $font-size-xs;
+}
+
+.bootstrap-select button {
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Make filled out selects be the same size as empty selects */
+
+.bootstrap-select.btn-group .dropdown-toggle .filter-option {
+    display: inline !important;
+}

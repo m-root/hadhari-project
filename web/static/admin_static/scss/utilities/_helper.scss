@@ -1,0 +1,131 @@
+.z-depth--removed {
+    border-width: 1px!important;
+    box-shadow: none!important;
+}
+.z-depth-1:not(.btn),
+.z-depth-1--hover:not(.btn):hover,
+.z-depth-1-top:not(.btn),
+.z-depth-1-top--hover:not(.btn):hover,
+.z-depth-1-bottom:not(.btn),
+.z-depth-1-bottom--hover:not(.btn):hover,
+.z-depth-2:not(.btn),
+.z-depth-2--hover:not(.btn):hover,
+.z-depth-2-top:not(.btn),
+.z-depth-2-top--hover:not(.btn):hover,
+.z-depth-2-bottom:not(.btn),
+.z-depth-2-bottom--hover:not(.btn):hover,
+.z-depth-3:not(.btn),
+.z-depth-3--hover:not(.btn):hover,
+.z-depth-3-top:not(.btn),
+.z-depth-3-top--hover:not(.btn):hover,
+.z-depth-3-bottom:not(.btn),
+.z-depth-3-bottom--hover:not(.btn):hover,
+.z-depth-4:not(.btn),
+.z-depth-4--hover:not(.btn):hover,
+.z-depth-4-top:not(.btn),
+.z-depth-4-top--hover:not(.btn):hover,
+.z-depth-4-bottom:not(.btn),
+.z-depth-4-bottom--hover:not(.btn):hover,
+.z-depth-5:not(.btn),
+.z-depth-5--hover:not(.btn):hover,
+.z-depth-5-top:not(.btn),
+.z-depth-5-top--hover:not(.btn):hover,
+.z-depth-5-bottom:not(.btn),
+.z-depth-5-bottom--hover:not(.btn):hover {
+    border-color: transparent !important;
+}
+
+.z-depth-0,
+.z-depth-0--hover:hover {
+    box-shadow: none!important;
+}
+.z-depth-1,
+.z-depth-1--hover:hover {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1), 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.z-depth-1-top,
+.z-depth-1-top--hover:hover {
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+.z-depth-1-bottom,
+.z-depth-1-bottom--hover:hover {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.z-depth-2,
+.z-depth-2--hover:hover {
+    box-shadow: 0 8px 17px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+.z-depth-2-top,
+.z-depth-2-top--hover:hover {
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+.z-depth-2-bottom,
+.z-depth-2-bottom--hover:hover {
+    box-shadow: 0 8px 17px rgba(0, 0, 0, 0.1);
+}
+.z-depth-3,
+.z-depth-3--hover:hover {
+    box-shadow: 0 12px 15px rgba(0, 0, 0, 0.1), 0 17px 50px rgba(0, 0, 0, 0.1);
+}
+.z-depth-3-top,
+.z-depth-3-top--hover:hover {
+    box-shadow: 0 17px 50px rgba(0, 0, 0, 0.1);
+}
+.z-depth-3-bottom,
+.z-depth-3-bottom--hover:hover {
+    box-shadow: 0 12px 15px rgba(0, 0, 0, 0.1);
+}
+.z-depth-4,
+.z-depth-4--hover:hover {
+    box-shadow: 0 16px 28px rgba(0, 0, 0, 0.1), 0 25px 55px rgba(0, 0, 0, 0.1);
+}
+.z-depth-4-top,
+.z-depth-4-top--hover:hover {
+    box-shadow: 0 25px 55px rgba(0, 0, 0, 0.1);
+}
+.z-depth-4-bottom,
+.z-depth-4-bottom--hover:hover {
+    box-shadow: 0 16px 28px rgba(0, 0, 0, 0.1);
+}
+.z-depth-5,
+.z-depth-5--hover:hover {
+    box-shadow: 0 27px 24px rgba(0, 0, 0, 0.1), 0 40px 77px rgba(0, 0, 0, 0.1);
+}
+.z-depth-5-top,
+.z-depth-5-top--hover:hover {
+    box-shadow: 0 40px 77px rgba(0, 0, 0, 0.1);
+}
+.z-depth-5-bottom,
+.z-depth-5-bottom--hover:hover {
+    box-shadow: 0 27px 24px rgba(0, 0, 0, 0.1);
+}
+
+// Alpha- Opacities
+.alpha-1 {
+    opacity: .1;
+}
+.alpha-2 {
+    opacity: .2;
+}
+.alpha-3 {
+    opacity: .3;
+}
+.alpha-4 {
+    opacity: .4;
+}
+.alpha-5 {
+    opacity: .5;
+}
+.alpha-6 {
+    opacity: .6;
+}
+.alpha-7 {
+    opacity: .7;
+}
+.alpha-8 {
+    opacity: .8;
+}
+.alpha-9 {
+    opacity: .9;
+}

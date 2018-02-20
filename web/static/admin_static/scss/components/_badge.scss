@@ -1,0 +1,25 @@
+.badge a {
+    color: #FFF;
+}
+
+.badge-inline {
+    margin-right: .625rem;
+}
+
+.badge-inline + span {
+    top: 2px;
+    position: relative;
+    font-size: $font-size-sm;
+}
+
+.badge-inline + span > a {
+    text-decoration: underline;
+}
+
+.badge-md {
+    padding: .65em 1em;
+}
+
+.badge-lg {
+    padding: .85em 1.375em;
+}

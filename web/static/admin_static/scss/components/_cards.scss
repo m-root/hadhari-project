@@ -1,0 +1,702 @@
+/* Cards - General styling */
+.card-wrapper > .card:not(:last-child) {
+    margin-bottom: $spacer * 2;
+}
+
+.card {
+    position: relative;
+    border: 1px solid $card-border-color;
+    border-radius: $card-border-radius;
+    background: $card-bg;
+    -webkit-transition: all 0.3s linear;
+    transition: all 0.3s linear;
+}
+.card-fluid {
+    height: 100%;
+}
+.card-fluid .card-body,
+.card-fluid .link-block {
+    height: 100%;
+}
+.card > .mask {
+    border-radius: $card-border-radius;
+}
+@media(min-width: 992px) {
+    // Sticked cards
+    .card-sticked-bottom {
+        position: absolute;
+        bottom: 0;
+        border-radius: $card-border-radius $card-border-radius 0 0;
+    }
+}
+
+/* Quick border classes for cards - Same classes as the global ones */
+.card .border-top,
+.card .border-right,
+.card .border-bottom,
+.card .border-left {
+    border-color: $card-border-color!important;
+}
+
+/* Card spacers */
+.card-spacer--top {
+    padding-top: 4rem!important;
+}
+.card-spacer--top-lg {
+    padding-top: 6rem!important;
+}
+.card-spacer--top-xl {
+    padding-top: 8rem!important;
+}
+
+/* Cards contents */
+.card-body {
+    position: relative;
+    padding: $card-spacer-y $card-spacer-x;
+}
+
+.card-body--overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.card-body--overlay > .card-body-inner {
+    width: 100%;
+}
+.card-body--overlap {
+    position: relative;
+    margin: -80px auto 0 auto;
+    width: calc(100% - 30px);
+    background: $card-bg;
+    border-radius: $card-border-radius;
+}
+.card-body > .lead {
+    margin-bottom: 0;
+}
+
+.card > .card-title,
+.card > .card-header {
+    padding: $card-spacer-y $card-spacer-x;
+    border-bottom: 1px solid rgba(0, 0, 0, .05);
+    margin-bottom: 0;
+}
+.card-title .heading,
+.card-header .heading {
+    margin: 0;
+    display: inline-block;
+}
+.card-title > .btn-aux {
+    float: right;
+    font-size: $font-size-sm;
+    color: $color-gray-light;
+}
+.card-title > .btn-aux > .aux-text {
+    display: inline-block;
+    margin-left: 5px;
+    color: $color-gray-dark;
+}
+.card-title > .btn-aux:hover > .aux-text {
+    color: $color-base-1;
+}
+
+/* Card navigation */
+.card-header-tabs {
+    margin-bottom: -$card-spacer-y;
+}
+
+/* Card action buttons */
+.card-icon-actions > a {
+    display: inline-block;
+    margin-right: 0.625rem;
+    color: $color-gray-light;
+    font-size: 0.875rem;
+}
+.card-icon-actions-lg > a {
+    font-size: 1.25rem;
+    margin-right: 0.875rem;
+}
+.card-icon-actions > a:hover,
+.card-icon-actions > .active {
+    color: $color-gray-dark;
+}
+.card-icon-actions > a:last-child {
+    margin-right: 0;
+}
+.card-icon-actions > .favorite:hover,
+.card-icon-actions > .favorite.active {
+    color: $favorite-color;
+}
+.card-icon-actions > .love:hover,
+.card-icon-actions > .love.active {
+    color: $love-color;
+}
+
+.card-icon-actions > .like:hover,
+.card-icon-actions > .like.active {
+    color: $like-color;
+}
+
+/* Card comment box */
+.card-comment-box input,
+.card-comment-box textarea {
+    width: 100%;
+    border: 0;
+    background: transparent;
+    padding: 0.3125rem 0;
+    margin: 0;
+    color: $color-gray-dark;
+    font-size: $font-size-sm;
+    outline: none;
+    resize: none;
+}
+
+/* Card actions */
+.card-actions {
+    padding: 1rem 0;
+}
+.card.bg-base-1 .card-title-wrapped {
+    background: darken($color-base-1, 3%);
+    border: 1px solid darken($color-base-1, 5%);
+}
+.card.bg-base-1 .card-title .heading {
+    color: $color-base-text-1;
+}
+
+.card-inner-title-wrapper {
+    padding: (1.5 * $spacer) 0;
+}
+.card-inner-title {
+    margin: 0;
+    padding: 0;
+    font-size: $font-size-sm;
+    font-weight: $heading-font-weight;
+    color: $heading-color;
+}
+.card-inner-title > i {
+    margin-right: 6px;
+}
+.card-inner-subtitle {
+    margin: 4px 0 0 0;
+    padding: 0;
+    font-size: $font-size-sm;
+    font-weight: 300;
+    color: $color-gray-light;
+}
+.card-inner-subtitle.subtitle-icon-aligned {
+    padding-left: 1.5rem;
+}
+
+.card-footer {
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    padding: $spacer $card-spacer-x;
+    background: inherit;
+}
+@media(min-width: 992px) {
+    .card-footer.absolute-bottom {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+    }
+}
+
+.card-icon-bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+.card-icon-bg i {
+    font-size: 10rem;
+    color: rgba(0, 0, 0, 0.1);
+    line-height: 0;
+}
+
+/* Inverse cards */
+.card-inverse {
+    background: $card-inverse-bg;
+}
+.card-inverse *:not(.btn):not(.alert):not(.form-control):not(.heading):not(a) {
+    color: $card-inverse-text-color;
+}
+.card-inverse .heading,
+.card-inverse .heading > a {
+    color: $card-inverse-title-color;
+}
+
+.card-inverse .card-footer {
+    border-top-color: $card-inverse-border-color;
+}
+
+.card-inverse p {
+    color: $card-inverse-text-color;
+}
+.card-inverse .heading {
+    color: $card-inverse-heading-color;
+}
+.card-inverse .heading-light {
+    color: $card-inverse-heading-light-color;
+}
+.card-inverse .stats-entry .stats-count {
+    color: $card-inverse-heading-color;
+}
+.card-inverse .stats-entry .stats-label {
+    color: $card-inverse-heading-light-color;
+}
+.card-inverse .useful-links a {
+    color: $sidebar-inverse-link-color;
+}
+.card-inverse .useful-links a:hover {
+    color: $sidebar-inverse-link-color-hover;
+}
+
+// Card colored
+.card-colored {
+    border: 0;
+}
+
+// Stacked colored cards
+@media(min-width: 768px) {
+    .row-no-padding .card-colored {
+        border-radius: 0;
+    }
+    .row-no-padding [class^=col-]:first-child .card-colored {
+        border-radius: $card-border-radius 0 0  $card-border-radius;
+    }
+    .row-no-padding [class^=col-]:last-child .card-colored {
+        border-radius: 0 $card-border-radius $card-border-radius 0 ;
+    }
+}
+
+// Colored card layout
+.card-colored .card-body {
+    padding: $spacer * 3;
+} 
+
+.card-colored .card-title + .card-body {
+    padding: $card-spacer-y $card-spacer-x;
+}
+.card-colored .card-body .heading,
+.card-colored .card-body p {
+    color: #FFF;
+}
+
+@media(min-width: 1600px) {
+    .row-no-padding .card-colored {
+        padding-left: 3.5rem;
+        padding-right: 3.5rem;
+    }
+}
+// Card images
+.card-img {
+    border-radius: $card-border-radius;
+}
+
+// Images as card backgrounds
+.card-img-bg {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-size: cover;
+    border-radius: $card-border-radius;
+    -webkit-backface-visibility: hidden;
+    transition: all .7s cubic-bezier(.2,1,.22,1);
+    -webkit-transition: all .7s cubic-bezier(.2,1,.22,1);
+}
+
+.card:hover .card-img-bg {
+    transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+}
+
+.card-image {
+    position: relative;
+    -webkit-transition: all 0.3s linear;
+    transition: all 0.3s linear;
+}
+.card-image img,
+.card-image > .view {
+    max-width: 100%;
+    border-radius: $card-border-radius $card-border-radius 0 0;
+}
+[class*=z-depth] .card-image img,
+[class*=z-depth] .card-image > .view {
+    max-width: 100%!important;
+    margin-left: 0;
+    margin-top: 0;
+}
+.card-title + .card-image img,
+.card-title + .card-image > .view {
+    border-radius: 0;
+}
+.card-icon {
+    padding: $spacer * 2.5;
+}
+.card-icon-lg i,
+.card-icon-lg i {
+    font-size: 70px;
+    line-height: 1;
+}
+.card-image-container {
+    position: relative;
+    height: 100%;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex: 1;
+    flex: 1;
+    -ms-flex-align: center;
+    align-items: center;
+    background-size: cover;
+    background-color: #efe9e8;
+    -ms-flex-pack: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.card-image-container > .card-image {
+    max-width: none;
+}
+
+@media (min-width: 768px) {
+    .card > .row [class^=col-md] .card-image-container .card-img > img {
+        top: 0;
+        left: 0;
+        height: 100%!important;
+        width: 100%;
+        position: absolute;
+        object-fit: cover;
+    }
+}
+
+/* Image overlays */
+.card-caption-overlay {
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 3;
+    padding: 15px 0;
+    background: #FFF;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 0 0 $card-border-radius $card-border-radius;
+    transition: all 0.3s ease-in-out;
+    -webkit-transition: all 0.3s ease-in-out;
+}
+
+.card-caption-overlay > .card-caption {
+    padding: 0 ($spacer * 1.5);
+    width: 100%;
+    align-self: center;
+}
+// Animated info block on hover
+
+.card-caption-overlay--animated {
+    height: 80px;
+}
+
+.card:hover > .card-caption-overlay--animated {
+    height: 90px;
+}
+
+.card-caption-overlay--animated:hover {
+    height: 100%;
+    border-radius: $card-border-radius;
+}
+
+.card-caption-overlay > .card-caption > .card-caption-hidden {
+    display: none;
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+    -webkit-transition: all 0.3s ease-in-out;
+}
+
+.card-caption-overlay--animated:hover > .card-caption > .card-caption-hidden {
+    display: block;
+    opacity: 1;
+}
+
+.card-caption-overlay .card-caption-table {
+    width: 100%;
+    margin: 20px 0 0;
+    color: $color-gray-dark;
+    font-size: 0.7em;
+}
+
+.card-caption-overlay .heading {
+    margin: 0;
+    color: $color-gray-dark;
+}
+
+.card-caption-overlay .heading > a {
+    color: $color-gray-dark;
+}
+
+.card-caption-overlay:hover .info-title > a {
+    color: $color-gray-dark;
+}
+// Block info over - STYLE 2
+
+.card-caption-overlay--2 {
+    height: 60px;
+    width: calc(100% - 1.6rem);
+    margin: 0.8rem;
+    background: #FFF;
+    border-radius: $card-border-radius;
+}
+
+.card-caption-overlay--2.card-caption-overlay--animated:hover {
+    height: calc(100% - 1.6rem);
+}
+
+// Block info over - STYLE 3
+
+.card-caption-overlay--3 {
+    height: 80px;
+    width: 100%;
+    background: #FFF;
+    background: rgba(255, 255, 255, 0.8);
+}
+
+.card:hover > .card-caption-overlay--3 {
+    height: 90px;
+    border-radius: 0.25rem;
+}
+
+.card:hover > .card-caption-overlay--3:hover {
+    height: 100%;
+}
+
+// Block info over - DARK
+
+.card-caption-overlay--dark {
+    background: rgba(0, 0, 0, 0.8);
+    color: #787878;
+}
+
+.card-caption-overlay--dark-gradient {
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,000000+100&0+0,0.65+100 */
+    background: -moz-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0.65) 100%);
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 100%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=  '#00000000', endColorstr='#a6000000',GradientType=0 );
+    /* IE6-9 */
+}
+
+.card:hover > .card-caption-overlay--dark-gradient {
+    background: -moz-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0.8) 100%);
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0.8) 100%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0.8) 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=  '#00000000', endColorstr='#a6000000',GradientType=0 );
+    /* IE6-9 */
+}
+
+.card-caption-overlay--dark .heading,
+.card-caption-overlay--dark .heading > a {
+    color: $color-gray-lighter;
+}
+.card-caption-overlay--dark p {
+    color: $color-gray-light;
+}
+.card-caption-overlay--dark .heading > a:hover,
+.card-caption-overlay--dark .heading:hover a {
+    color: $color-gray-lighter!important;
+}
+
+.card-caption-overlay--dark .heading > a:hover {
+    text-decoration: underline;
+}
+
+.card-caption-overlay--dark .card-caption-table tr {
+    border-bottom: 1px dotted rgba(255, 255, 255, 0.1);
+}
+
+.card-caption-overlay--dark .card-caption-table td {
+    color: $color-gray-lighter;
+    padding: 8px 0;
+    border: 0;
+}
+
+.block-image-holder .block-info {
+    padding: $spacer 0 !important;
+    width: 100%;
+    position: absolute;
+    bottom: 30px;
+    left: 0;
+    z-index: 3;
+    background: transparent;
+}
+
+.block-image-holder .image-mask {
+    background-color: #282B30;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    opacity: 0.45;
+    transition: opacity 0.3s ease 0s;
+}
+
+.block-image-holder:hover .image-mask {
+    opacity: 0;
+}
+
+/* Horizontal cards */
+.card-horizontal .card-image-left img {
+    border-radius: $card-border-radius 0 0 $card-border-radius;
+}
+.card-horizontal .card-image-right img {
+    border-radius: 0 $card-border-radius $card-border-radius 0;
+}
+.card-horizontal .card-body{
+    padding: $spacer * 1.5;
+}
+.card-horizontal .card-footer {
+    padding-left: $spacer * 1.5;
+    padding-right: $spacer * 1.5;
+}
+
+.card-blockquote {
+    position: relative;
+}
+
+.card-blockquote > p {
+    font-size: $font-size-lg;
+    line-height: 1.7;
+    color: $color-gray-light;
+    font-weight: 400;
+    font-style: italic;
+}
+
+.card-blockquote > p > i {
+    font-size: 30px;
+    color: $color-gray-lighter;
+    display: inline-block;
+}
+.card-blockquote > p > .quote-left {
+    position: relative;
+    margin-right: 10px;
+    top: -12px;
+}
+.card-blockquote > p > .quote-right {
+    position: relative;
+    margin-left: 10px;
+    bottom: -12px;
+}
+
+.card-blockquote > footer {
+    font-size: $font-size-base;
+    margin-top: $spacer * 2;
+    color: $color-base-1;
+}
+
+.card-outer-quote {
+    position: absolute;
+    top: -150px;
+    left: 0;
+    font-size: 100px;
+    color: $color-base-1;
+}
+// Change card and its elements on hover
+.card-hover--animation-1,
+.card-hover--animation-1 * {
+    -webkit-transition: all 0.3s linear;
+    transition: all 0.3s linear;
+}
+
+.card-hover--animation-1:hover .btn {
+    background: $color-base-1;
+    color: $color-base-text-1;
+    border-color: $color-base-1;
+}
+
+
+
+
+
+
+/* Cards with flip animation */
+.card-flip {
+    height: 100%;
+}
+.card-flip .card-back {
+    border-radius: $card-border-radius;
+}
+
+/* Fade effect */
+.card-overflow-fade {
+    position: relative;
+}
+.card-overflow-fade::after {
+    position: absolute;
+    width: 100%;
+    height: 60px;
+    background: rgba(255, 255, 255, 0.3);
+    bottom: 0;
+    left: 0;
+}
+
+// Outer cards
+@media(min-width: 992px) {
+    .card-out-wrapper {
+        position: absolute;
+        width: 100%;
+        height: 140%;
+        padding: 3rem;
+        top: 0;
+        left: 0;
+        transform: translateY(-25%);
+    }
+}
+
+/* Transparent cards + Fill on hover option */
+.card-transparent {
+    background: transparent;
+    border: 0;
+}
+.card-transparent * {
+    color: #FFF!important;
+}
+
+.card-fill--hover:hover {
+    background: $card-bg;
+}
+.card-fill--hover:hover i {
+    color: $color-base-1!important;
+}
+.card-fill--hover:hover .heading {
+    color: $card-heading-color!important;
+}
+.card-fill--hover:hover p,
+.card-fill--hover:hover li {
+    color: $card-text-color!important;
+}
+
+/* Show/Hide items on hover */
+.show-on-hover .show-item {
+    opacity: 0;
+
+}
+.show-on-hover .show-item {
+    transition-delay: 0s;
+    transition-delay: 0.5s;
+}
+.show-on-hover:hover .show-item {
+    opacity: 1;
+    -webkit-transition: all 0.3s linear;
+    transition: all 0.3s linear;
+
+}

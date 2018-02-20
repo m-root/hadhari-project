@@ -1,0 +1,454 @@
+.table td,
+.table th {
+    font-size: $font-size-sm;
+}
+
+.table-bordered td,
+.table-bordered th {
+    border: 1px solid $card-border-color;
+}
+
+.table thead th {
+    vertical-align: bottom;
+    color: $table-th-color;
+    font-weight: 400;
+}
+
+.table tbody td {
+    vertical-align: middle;
+    color: $table-td-color;
+}
+
+.table tbody+tbody {
+    border-top: 2px solid #f2f2f2;
+}
+
+.table .table {
+    background-color: #f3f3f3;
+}
+
+.table-sm td,
+.table-sm th {
+    padding: 0.75rem 1rem;
+}
+
+.table-bordered,
+.table-bordered td,
+.table-bordered th {
+    border: 1px solid #f2f2f2;
+}
+
+.table-bordered thead td,
+.table-bordered thead th {
+    border-bottom-width: 2px;
+}
+
+.table-inverse.table-bordered,
+.table-responsive.table-bordered {
+    border: 0;
+}
+
+.table-active,
+.table-active > td,
+.table-active > th,
+.table-hover tbody tr:hover,
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: $table-odd-row-bg;
+}
+
+.table-hover .table-active:hover,
+.table-hover .table-active:hover > td,
+.table-hover .table-active:hover > th {
+    background-color: $table-odd-row-bg-hover;
+}
+
+.table-success,
+.table-success > td,
+.table-success > th {
+    background-color: #57d59f;
+}
+
+.table-hover .table-success:hover,
+.table-hover .table-success:hover > td,
+.table-hover .table-success:hover > th {
+    background-color: #43d093;
+}
+
+.table-info,
+.table-info > td,
+.table-info > th {
+    background-color: #2ebcfc;
+}
+
+.table-hover .table-info:hover,
+.table-hover .table-info:hover > td,
+.table-hover .table-info:hover > th {
+    background-color: #14b4fc;
+}
+
+.table-warning,
+.table-warning > td,
+.table-warning > th {
+    background-color: #ffc721;
+}
+
+.table-hover .table-warning:hover,
+.table-hover .table-warning:hover > td,
+.table-hover .table-warning:hover > th {
+    background-color: #ffc107;
+}
+
+.table-danger,
+.table-danger > td,
+.table-danger > th {
+    background-color: #ff6f6c;
+}
+
+.table-hover .table-danger:hover,
+.table-hover .table-danger:hover > td,
+.table-hover .table-danger:hover > th {
+    background-color: #ff5652;
+}
+
+.thead-inverse th {
+    color: #f3f3f3;
+    background-color: #404c54;
+}
+
+.thead-default th {
+    color: #464a4c;
+    background-color: #fbfbfb;
+}
+
+.table-inverse {
+    color: #f3f3f3;
+    background-color: #404c54;
+}
+
+.table-responsive {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+}
+
+.table thead th {
+    border-bottom-width: 1px;
+}
+
+.table tr[class*=table-] td,
+.table tr[class*=table-] th,
+.table tr[class*=table-]+tr td,
+.table tr[class*=table-]+tr th {
+    border: 0;
+}
+
+.table:not(.table-bordered) > tbody:first-child td,
+.table:not(.table-bordered) > tbody:first-child th,
+.table:not(.table-bordered) > thead:first-child td,
+.table:not(.table-bordered) > thead:first-child th {
+    border-top: 0;
+}
+
+.table-inverse td,
+.table-inverse th,
+.table-inverse thead th {
+    border-color: #505b63;
+}
+.table > tbody > tr > td,
+.table > tbody > tr > th,
+.table > tfoot > tr > td,
+.table > tfoot > tr > th,
+.table > thead > tr > td,
+.table > thead > tr > th {
+    border-top: 1px solid $border-color-inner;
+    font-size: $font-size-sm;
+}
+.table-no-border > tbody > tr > td,
+.table-no-border > tbody > tr > th,
+.table-no-border > tfoot > tr > td,
+.table-no-border > tfoot > tr > th,
+.table-no-border > thead > tr > td,
+.table-no-border > thead > tr > th {
+    border-top: 0;
+}
+
+// Table - PROFILE
+.table-profile > tbody > tr > td:not(.td-actions) {
+    font-size: $font-size-sm;
+}
+
+.table-profile > tbody > tr > td.td-label {
+    font-size: $font-size-xs;
+    font-family: $font-family-alt;
+    font-weight: 500;
+    color: $color-gray-light;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.table-profile > tbody > tr > td.td-label > span {
+    display: block;
+    padding-right: $spacer;
+}
+
+.table-profile > tbody > tr > td.td-actions > .btn {
+    opacity: 0;
+}
+
+.table-profile > tbody > tr:hover > td.td-actions > .btn {
+    opacity: 1;
+}
+// Table: CART
+.table-cart {
+    width: 100%;
+}
+.table-cart > thead > tr > th {
+    font-size: 10px;
+    font-weight: bold;
+    line-height: 1.2;
+    text-transform: uppercase;
+    letter-spacing: .3px;
+    padding: 0 0 10px;
+    border-bottom: 1px solid #e7e7e7;
+}
+.table-cart > tbody > tr:not(:last-child) {
+    border-bottom: 1px dashed $border-color-base;
+}
+.table-cart > tbody > tr > td,
+.table-cart > tbody > tr > th,
+.table-cart > tfoot > tr > td,
+.table-cart > tfoot > tr > th,
+.table-cart > thead > tr > td,
+.table-cart > thead > tr > th {
+    //border-color: $border-color-inner;
+    //vertical-align: middle;
+}
+
+.table-cart tbody tr td {
+    font-size: $font-size-sm;
+    font-weight: bold;
+    line-height: 1.2;
+    letter-spacing: -0.5px;
+    text-transform: none;
+    padding: 1.25rem 0;
+    vertical-align: middle;
+    color: $color-gray-dark;
+    border: none;
+}
+
+.table-cart tbody tr td.product-remove a {
+    display: block;
+    width: 100px;
+    text-align: center;
+}
+.table-cart tbody tr td.product-remove a {
+    font-size: 1rem;
+    color: $color-gray-light;
+}
+.table-cart tbody tr td.product-remove a:hover {
+    color: $color-red;
+}
+.table-cart tbody tr td.product-image a {
+    position: relative;
+    overflow: hidden;
+    display: block;
+    width: 80px;
+    height: 80px;
+}
+.table-cart tbody tr td.product-image img {
+    max-width: 100%;
+}
+.table-cart tbody tr td.product-quantity .form-control {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-align: center;
+    line-height: 1.2;
+}
+.table-cart tfoot tr {
+    border-bottom: 1px solid $border-color-base;
+}
+.table-cart tfoot tr th,
+.table-cart tfoot tr td {
+    padding: 0.75rem 0;
+    font-size: $font-size-sm;
+    line-height: 1.2;
+    letter-spacing: .3px;
+    color: $color-gray-dark;
+}
+
+.table-cart tfoot tr.cart-subtotal th,
+.table-cart tfoot tr.cart-shipping th,
+.table-cart tfoot tr.cart-total th {
+    padding: 0.75rem 0;
+    font-size: $font-size-xs;
+    text-transform: uppercase;
+    font-weight: 400;
+}
+
+.table-cart tfoot tr.cart-total th,
+.table-cart tfoot tr.cart-total td {
+    padding: 1.25rem 0;
+}
+
+
+.table-cart .cart-item-img {
+    width: 120px;
+}
+
+.table-cart .cart-item-img img {
+    width: 100%;
+}
+
+.table-cart .cart-item-content {
+    vertical-align: middle;
+    width: 70%;
+}
+
+.table-cart .cart-item-content .cart-item-title {
+    font-weight: 500;
+    font-size: $font-size-h6;
+    color: $color-gray-dark;
+}
+
+.table-cart .cart-item-content .cart-item-title:hover {
+    color: $color-base-1;
+}
+
+.table-cart .cart-item-content .label-quantity {
+    color: $color-gray-light;
+    font-weight: 400;
+    font-size: $font-size-sm;
+}
+
+.table-cart .cart-item-content .label-value {
+    font-weight: 600;
+}
+
+.table-cart .cart-item-unit-price {
+    //width: 20%;
+    vertical-align: middle;
+    font-size: 18px;
+}
+
+.table-cart .cart-item-price {
+    width: 20%;
+    vertical-align: middle;
+    text-align: right;
+}
+
+.table-cart .cart-item-price > .price {
+    font-weight: 600;
+    font-size: $font-size-lg;
+    display: block;
+    color: $color-gray-dark;
+}
+
+.table-cart .cart-item-price > .price.discount {
+    font-weight: 500;
+    font-size: $font-size-sm;
+    text-decoration: line-through;
+    color: $color-red;
+    margin-top: 8px;
+}
+
+.table-cart .cart-item-price > .price.savings {
+    font-weight: 400;
+    font-size: $font-size-xs;
+}
+
+.table-cart .cart-item-count {
+    vertical-align: middle;
+}
+
+.table-cart .label-subtotal {
+    padding-top: 15px;
+    text-align: center;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+.table-cart .table-cart-footer {
+    padding: 15px;
+    //background: #dcdcdc;
+    border-top: 1px solid $border-color-inner;
+}
+
+.table-cart .cart-items {
+    display: block;
+    padding: 15px;
+    font-size: 14px;
+    font-weight: 500;
+    background: #eee;
+    color: #ccc;
+    border-bottom: 1px solid #ccc;
+}
+
+// Dropdown cart: Inverse
+.navbar-dropdown--inverse .dropdown-cart .table > tbody > tr > td,
+.navbar-dropdown--inverse .dropdown-cart .table > tbody > tr > th,
+.navbar-dropdown--inverse .dropdown-cart .table > tfoot > tr > td,
+.navbar-dropdown--inverse .dropdown-cart .table > tfoot > tr > th,
+.navbar-dropdown--inverse .dropdown-cart .table > thead > tr > td,
+.navbar-dropdown--inverse .dropdown-cart .table > thead > tr > th {
+    border-color: $navbar-dropdown-dark-item-border-color;
+}
+
+.navbar-dropdown--inverse .dropdown-cart-header {
+    border-bottom: 1px solid $navbar-dropdown-dark-item-border-color;
+}
+
+.navbar-dropdown--inverse .dropdown-cart-header .heading,
+.navbar-dropdown--inverse .dropdown-cart-header .dropdown-cart-header-count {
+    color: $color-gray-lighter;
+}
+
+.navbar-dropdown--inverse .dropdown-cart .cart-item-content .cart-item-title {
+    color: $navbar-dropdown-dark-menu-color;
+}
+
+.navbar-dropdown--inverse .dropdown-cart .cart-item-content .label-quantity {
+    color: $color-gray-light;
+}
+
+.navbar-dropdown--inverse .dropdown-cart-footer {
+    border-top: 1px solid $navbar-dropdown-dark-item-border-color;
+}
+
+.navbar-dropdown--inverse .dropdown-cart-footer-subtotal {
+    border-top: 1px solid $navbar-dropdown-dark-item-border-color;
+}
+// Table: INNER WELL (e.g shop checkout sidebar)
+.table-inner-well {
+    padding: 15px;
+}
+
+.table-inner-well > thead > tr > th {
+    padding: 12px 0;
+    border: 0;
+    font-weight: 600;
+}
+
+.table-inner-well > tbody > tr > td {
+    padding: $spacer 0;
+    border-bottom: 1px solid $border-color-inner;
+    vertical-align: middle;
+}
+
+.table-inner-well > tbody > tr:last-child > td {
+    border: 0;
+}
+
+.table-inner-well > tbody > tr.tr-sm > td {
+    padding: 0.625rem 0;
+}
+
+.table-inner-well .label-count {
+    color: $color-gray-light;
+    font-weight: 600;
+}
+
+// Table: Specs
+.table-specs > tbody > tr > td {
+    padding: 0.625rem 0;
+}

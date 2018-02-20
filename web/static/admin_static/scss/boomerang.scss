@@ -1,0 +1,61 @@
+// Boomerang variables
+@import "_variables.scss"; 
+
+// User's custom variables
+@import "_variables-custom.scss";
+
+// Bootstrap variables and functions
+@import "../vendor/bootstrap/scss/functions";
+@import "../vendor/bootstrap/scss/variables";
+@import "../vendor/bootstrap/scss/mixins";
+
+// Overriden mixins
+@import "mixins/_background-variant.scss";
+@import "mixins/_forms.scss";
+@import "mixins/_modals.scss";
+@import "mixins/_popover.scss";
+
+// Vendor components
+@import "../vendor/bootstrap-select/scss/bootstrap-select.scss";
+
+// Bootstrap components
+@import "../vendor/bootstrap/scss/root";
+@import "../vendor/bootstrap/scss/reboot";
+@import "../vendor/bootstrap/scss/type";
+@import "../vendor/bootstrap/scss/images";
+@import "../vendor/bootstrap/scss/code"; 
+@import "../vendor/bootstrap/scss/grid";
+@import "../vendor/bootstrap/scss/tables";
+@import "../vendor/bootstrap/scss/forms";
+@import "../vendor/bootstrap/scss/buttons";
+@import "../vendor/bootstrap/scss/transitions";
+@import "../vendor/bootstrap/scss/dropdown";
+@import "../vendor/bootstrap/scss/button-group";
+@import "../vendor/bootstrap/scss/input-group";
+@import "../vendor/bootstrap/scss/custom-forms";
+@import "../vendor/bootstrap/scss/nav";
+@import "../vendor/bootstrap/scss/navbar";
+@import "../vendor/bootstrap/scss/card";
+@import "../vendor/bootstrap/scss/breadcrumb";
+@import "../vendor/bootstrap/scss/pagination";
+@import "../vendor/bootstrap/scss/badge";
+@import "../vendor/bootstrap/scss/jumbotron";
+@import "../vendor/bootstrap/scss/alert";
+@import "../vendor/bootstrap/scss/progress";
+@import "../vendor/bootstrap/scss/media";
+@import "../vendor/bootstrap/scss/list-group";
+@import "../vendor/bootstrap/scss/close";
+@import "../vendor/bootstrap/scss/modal";
+@import "../vendor/bootstrap/scss/tooltip";
+@import "../vendor/bootstrap/scss/popover";
+@import "../vendor/bootstrap/scss/carousel";
+@import "../vendor/bootstrap/scss/utilities";
+@import "../vendor/bootstrap/scss/print";
+
+// Boomerang styles
+@import "_reboot.scss";
+@import "_components.scss";
+@import "_utilities.scss";
+
+// User's custom styles
+@import "_custom.scss";

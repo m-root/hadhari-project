@@ -1,0 +1,17 @@
+.icon {
+
+}
+
+.icon-lg {
+	width: 3.75rem;
+	height: 3.75rem;
+}
+.icon-lg i,
+.icon-lg svg {
+	font-size: 3rem; 
+}
+
+.icon-lg + .icon-text {
+	padding-left: 1rem;
+	width: calc(100% - 3rem - 1rem);
+}

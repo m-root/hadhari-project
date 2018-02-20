@@ -1,0 +1,130 @@
+.alert {
+    padding: $alert-padding-y $alert-padding-x;
+    border: 0;
+    @include border-radius($alert-border-radius);
+} 
+.alert-shadow {
+    box-shadow: 0 8px 22px 0 rgba(0,0,0,0.37);
+}
+.alert:not(.alert-light) {
+    color: $white;
+}
+
+[class*="alert-"] {
+    .alert-link {
+        color: $white;
+        border-bottom: 1px dotted rgba($white, 0.5);
+    }
+}
+
+.alert-heading {
+    font-weight: $font-weight-bold;
+    font-size: $h4-font-size;
+    margin-top: 0.15rem;
+} 
+
+.alert-dismissible {
+    .close { 
+        top: 50%;
+        right: $alert-padding-x;
+        padding: 0;
+        transform: translateY(-50%);
+
+        &>span:not(.sr-only) {
+            background-color: rgba($white, 0.3);
+            line-height: 19px;
+            height: 20px;
+            width: 20px; 
+            border-radius: 50%;
+            font-size: 0.8rem;
+            display: block;
+        }
+
+        &:hover,
+        &:focus {
+            color: $white;
+
+            span:not(.sr-only) {
+                background-color: rgba($white, 0.5);
+            }
+        }
+    }
+
+    .undo {
+        position: absolute;
+        right: $alert-padding-x + 2;
+        top: 50%;
+        transform: translateY(-50%);
+        color: transparentize($white, 0.5);
+        text-transform: uppercase;
+        font-size: $font-size-sm;
+        font-weight: $font-weight-bold;
+        background: transparent;
+        border: 0;
+        cursor: pointer;
+
+        &:hover,
+        &:focus {
+            color: transparentize($white, 0.2);
+        }
+    }
+}
+
+// Alert Inverse
+.alert-inverse {
+    //@include alert-variant(#2c2c2c, #2c2c2c, $white);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+}
+
+// Notify
+.alert--notify {
+    max-width: 600px;
+    width: 100%;
+    padding-right: 60px;
+
+    &:not(.alert-inverse) {
+        .alert--notify__close {
+            color: $white;
+
+            &:hover {
+                opacity: 0.8;
+            }
+        }
+    }
+
+    &.alert-inverse {
+        .alert--notify__close {
+            color: $yellow;
+
+            &:hover {
+                opacity: 0.8;
+            }
+        }
+    } 
+}
+
+.alert--notify__close {
+    background-color: transparent;
+    border: 0;
+    text-transform: uppercase;
+    padding: 0;
+    cursor: pointer;
+    font-weight: 600;
+    position: absolute;
+    //right: $alert-padding-x;
+    //top: $alert-padding-y;
+}
+
+
+// // Bug fix for when using a background color with a custom text culor set
+// .alert {
+//     border-radius: $border-radius;
+//     -webkit-box-shadow: 0 8px 22px 0 rgba(0, 0, 0, 0.37);
+//     box-shadow: 0 8px 22px 0 rgba(0, 0, 0, 0.37);
+//     font-size: $font-size-sm;
+// }
+
+// .alert strong {
+//     color: inherit!important;
+//     font-weight: 500;
+// }
