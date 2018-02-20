@@ -1,0 +1,57 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Probably the most complete UI kit out there. Multiple functionalities and controls added,  extended color palette and beautiful typography, designed as its own extended version of Bootstrap at  the highest level of quality.                             ">
+    <meta name="author" content="Webpixels">
+
+    <title>SSI Web Framework </title>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700,800" rel="stylesheet" type="text/css" >
+
+
+    <link rel="stylesheet"  href="{% static 'admin_static/demo-files/demo.css' %}" >
+    <link rel="stylesheet" href="{% static 'admin_static/css/themify-icons.css' %}"  >
+
+    <link rel="stylesheet" href="{% static 'admin_static/ie7/ie7.css' %}">
+
+
+
+    <link rel="stylesheet" href="{% static 'admin_static/vendor/animate/animate.min.css' %}" >
+    <link rel="stylesheet" href="{% static 'admin_static/vendor/swiper/css/swiper.min.css' %}"  >
+
+
+
+    <link rel="stylesheet" href="{% static 'admin_static/css/boomerang.css' %}" >
+
+    <link rel="stylesheet" href="{% static 'admin_static/vendor/jquery-scrollbar/css/jquery-scrollbar.css' %}" >
+    <link rel="stylesheet"  href="{% static 'admin_static/css/demo.css' %}" >
+</head>
+<body>
+
+    {% block app %}
+    {% endblock %}
+
+<!-- Core -->
+<script src="{% static 'admin_static/vendor/jquery/jquery.min.js' %}"></script>
+<script src="{% static 'admin_static/vendor/popper/popper.min.js' %}"></script>
+<script src="{% static 'admin_static/vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'admin_static/vendor/fontawesome/js/fontawesome-all.min.js' %}" defer></script>
+
+<!-- Page plugins -->
+<script src="{% static 'admin_static/vendor/swiper/js/swiper.min.js' %}"></script>
+<script src="{% static 'admin_static/vendor/bootstrap-select/js/bootstrap-select.min.js' %}"></script>
+<script src="{% static 'admin_static/vendor/bootstrap-tagsinput/bootstrap-tagsinput.min.js' %}"></script>
+<script src="{% static 'admin_static/vendor/input-mask/input-mask.min.js' %}"></script>
+<script src="{% static 'admin_static/vendor/nouislider/js/nouislider.min.js' %}"></script>
+<script src="{% static 'admin_static/vendor/textarea-autosize/textarea-autosize.min.js' %}"></script>
+
+<!-- SSI Web Framework -->
+<script src="{% static 'admin_static/js/boomerang.js' %}"></script>
+<script src="{% static 'admin_static/js/boomerang-slider.js' %}"></script>
+
+</body>
+</html>

@@ -1,0 +1,117 @@
+{% extends 'core/application.html' %}
+{#{% extends 'frontend/layout.html' %}#}
+{% load web_filters %}
+{#{% load static %}#}
+{% block app %}
+{% load staticfiles %}
+<!-- Wrapper -->
+<div id="wrapper">
+<!-- Header Container
+================================================== -->
+<header id="header-container" class="fixed fullwidth dashboard">
+
+	<!-- Header -->
+	<div id="header" class="not-sticky">
+		<div class="container">
+
+			<!-- Left Side Content -->
+			<div class="left-side">
+
+				<!-- Logo -->
+				<div id="logo">
+
+					<a href="index-2.html" class="dashboard-logo"><img src="{% static 'images/logo2.png' %}" alt=""></a>
+				</div>
+
+				<!-- Mobile Navigation -->
+				<div class="menu-responsive">
+					<i class="fa fa-reorder menu-trigger"></i>
+				</div>
+				<!-- Main Navigation -->
+				<nav id="navigation" class="style-1">
+					<ul id="responsive">
+						<li>
+                         <a href="dashboard-add-listing.html" class="button border with-icon">Add Listing <i class="sl sl-icon-plus"></i></a>
+						</li>
+					</ul>
+				</nav>
+                <div class="clearfix"></div>
+				<!-- Main Navigation / End -->
+
+			</div>
+			<!-- Left Side Content / End -->
+
+			<!-- Right Side Content / End -->
+			<div class="right-side">
+				<!-- Header Widget -->
+				<div class="header-widget">
+
+					<!-- User Menu -->
+					<div class="user-menu">
+						<div class="user-name"><span><img src="{% static 'images/dashboard-avatar.jpg' %}" alt=""></span>Tom Perrin</div>
+						<ul>
+							<li><a href="dashboard.html"><i class="sl sl-icon-settings"></i> Dashboard</a></li>
+{#							<li><a href="dashboard-messages.html"><i class="sl sl-icon-envelope-open"></i> Messages</a></li>#}
+							<li><a href="dashboard-my-profile.html"><i class="sl sl-icon-user"></i> My Profile</a></li>
+							<li><a href="index-2.html"><i class="sl sl-icon-power"></i> Logout</a></li>
+						</ul>
+					</div>
+
+{#					<a href="dashboard-add-listing.html" class="button border with-icon">Add Listing <i class="sl sl-icon-plus"></i></a>#}
+				</div>
+				<!-- Header Widget / End -->
+			</div>
+			<!-- Right Side Content / End -->
+
+		</div>
+	</div>
+	<!-- Header / End -->
+
+</header>
+<div class="clearfix"></div>
+<!-- Header Container / End -->
+
+
+<!-- Dashboard -->
+<div id="dashboard">
+
+	<!-- Navigation
+	================================================== -->
+
+	<!-- Responsive Navigation Trigger -->
+	<a href="#" class="dashboard-responsive-nav-trigger"><i class="fa fa-reorder"></i> Dashboard Navigation</a>
+
+	<div class="dashboard-nav">
+
+		<ul data-submenu-title="Main">
+			<li class="active"><a href="dashboard.html"><i class="sl sl-icon-settings"></i> Dashboard</a></li>
+{#			<li><a href="dashboard-messages.html"><i class="sl sl-icon-envelope-open"></i> Messages <span class="nav-tag messages">2</span></a></li>#}
+		</ul>
+
+		<ul data-submenu-title="Listings">
+			<li><a><i class="sl sl-icon-layers"></i> My Listings</a>
+				<ul>
+					<li><a href="dashboard-my-listings.html">Active <span class="nav-tag green">6</span></a></li>
+					<li><a href="dashboard-my-listings.html">Pending <span class="nav-tag yellow">1</span></a></li>
+					<li><a href="dashboard-my-listings.html">Expired <span class="nav-tag red">2</span></a></li>
+				</ul>
+			</li>
+{#			<li><a href="dashboard-reviews.html"><i class="sl sl-icon-star"></i> Reviews</a></li>#}
+{#			<li><a href="dashboard-bookmarks.html"><i class="sl sl-icon-heart"></i> Bookmarks</a></li>#}
+			<li><a href="dashboard-add-listing.html"><i class="sl sl-icon-plus"></i> Add Listing</a></li>
+			<li><a href="dashboard-add-listing.html"><i class="sl sl-icon-plus"></i> Edit Listing</a></li>
+		</ul>
+
+		<ul data-submenu-title="Account">
+			<li><a href="dashboard-my-profile.html"><i class="sl sl-icon-user"></i> My Profile</a></li>
+			<li><a href="index-2.html"><i class="sl sl-icon-power"></i> Logout</a></li>
+		</ul>
+
+	</div>
+	<!-- Navigation / End -->
+    {% block dashboard %}
+
+{#        {% include 'web/dash_test.html' %}#}
+
+    {% endblock %}
+{% endblock %}

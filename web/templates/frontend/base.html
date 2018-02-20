@@ -1,0 +1,62 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+
+<head>
+
+<!-- Basic Page Needs
+================================================== -->
+<title>Tiny Totos Mapping App</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<!-- CSS
+================================================== -->
+<link rel="stylesheet" href="{% static 'front/css/style.css' %}">
+<link rel="stylesheet" href="{% static 'front/css/colors/main.css' %}" id="colors">
+
+</head>
+
+<body>
+
+<!-- Wrapper -->
+<div id="wrapper">
+
+{% block app %}
+
+{% endblock %}
+</div>
+<!-- Wrapper / End -->
+
+
+
+<!-- Scripts
+================================================== -->
+<script type="text/javascript" src="{% static 'front/scripts/jquery-2.2.0.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'front/scripts/jpanelmenu.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'front/scripts/chosen.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'front/scripts/slick.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'front/scripts/rangeslider.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'front/scripts/magnific-popup.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'front/scripts/waypoints.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'front/scripts/counterup.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'front/scripts/jquery-ui.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'front/scripts/tooltips.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'front/scripts/custom.js' %}"></script>
+
+
+<!-- Maps -->
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?key={{ google_maps_key }}&amp;language=en"></script>
+<script type="text/javascript" src="{% static 'front/scripts/infobox.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'front/scripts/markerclusterer.js' %}"></script>
+<script type="text/javascript" src="{% static 'front/scripts/maps.js' %}"></script>
+
+
+
+
+
+</body>
+
+
+</html>

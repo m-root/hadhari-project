@@ -1,0 +1,115 @@
+{% load static %}
+<!-- Header -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container">
+    <a class="navbar-brand" href="/">Tiny Totos Mapping App</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar_example_1" aria-controls="navbar_example_1" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbar_example_1">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle active" href="#" id="navbar_1_dropdown_1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Daycares</a>
+                <div class="dropdown-menu" aria-labelledby="navbar_1_dropdown_1">
+                    <a class="dropdown-item" href="#">Create</a>
+                    <a class="dropdown-item" href="#">List</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Add a new daycare</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Listings</a>
+            </li>
+
+             <li class="nav-item">
+                <a class="nav-link" href="#">Organizations</a>
+            </li>
+
+             <li class="nav-item">
+                <a class="nav-link" href="#">Users</a>
+            </li>
+
+{#            <-- Drop Down ! -->#}
+{#            <li class="nav-item dropdown">#}
+{#                <a class="nav-link dropdown-toggle" href="#" id="navbar_1_dropdown_1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>#}
+{#                <div class="dropdown-menu" aria-labelledby="navbar_1_dropdown_1">#}
+{#                    <a class="dropdown-item" href="#">Action</a>#}
+{#                    <a class="dropdown-item" href="#">Another action</a>#}
+{#                    <div class="dropdown-divider"></div>#}
+{#                    <a class="dropdown-item" href="#">Something else here</a>#}
+{#                </div>#}
+{#            </li>#}
+{#            <--! Drop Down -->#}
+
+{#            <li class="nav-item">#}
+{#                <a class="nav-link disabled" href="#">Disabled</a>#}
+{#            </li>#}
+        </ul>
+
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link nav-link-icon" href="#"><span class="ti-settings"></span></a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link nav-link-icon" href="#" id="navbar_1_dropdown_2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="ti-bell"></span></a>
+                <div class="dropdown-menu dropdown-menu-right dropdown-menu-xl py-0">
+                    <div class="py-3 px-3">
+                        <h5 class="heading h6 mb-0">Notifications</h5>
+                    </div>
+                    <div class="list-group">
+                        <a href="#" class="list-group-item list-group-item-action d-flex align-items-center">
+                            <div class="list-group-img">
+                                <span class="avatar bg-purple">JD</span>
+                            </div>
+                            <div class="list-group-content">
+                                <div class="list-group-heading">Johnyy Depp <small>10:05 PM</small></div>
+                                <p class="text-sm">Lorem ipsum dolor sit amet consectetur adipiscing eiusmod tempor</p>
+                            </div>
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action d-flex align-items-center">
+                            <div class="list-group-img">
+                                <span class="avatar bg-pink">TC</span>
+                            </div>
+                            <div class="list-group-content">
+                                <div class="list-group-heading">Tom Cruise <small>10:05 PM</small></div>
+                                <p class="text-sm">Lorem ipsum dolor sit amet consectetur adipiscing eiusmod tempor</p>
+                            </div>
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action d-flex align-items-center">
+                            <div class="list-group-img">
+                                <span class="avatar bg-blue">WS</span>
+                            </div>
+                            <div class="list-group-content">
+                                <div class="list-group-heading">Will Smith <small>10:05 PM</small></div>
+                                <p class="text-sm">Lorem ipsum dolor sit amet consectetur adipiscing eiusmod tempor</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="py-3 text-center">
+                        <a href="#" class="link link-sm link--style-3">View all notifications</a>
+                    </div>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link nav-link-icon" href="#" id="navbar_1_dropdown_3" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="ti-user"></span></a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <h6 class="dropdown-header"> User menu</h6>
+                    <a class="dropdown-item" href="#">
+                        <span class="float-right badge badge-primary">4</span>
+                        <span class="ti-email"></span> Messages
+                    </a>
+                    <a class="dropdown-item" href="#">
+                        <span class="ti-settings"></span> Settings
+                    </a>
+                    <div class="dropdown-divider" role="presentation"></div>
+                    <a class="dropdown-item" href="{% url 'authentication:logout' %}">
+                        <span class="ti-shift-right"></span> Sign out
+                    </a>
+                </div>
+            </li>
+        </ul>
+    </div>
+    </div>
+</nav>
+<!-- Header -->
