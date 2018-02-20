@@ -1,0 +1,81 @@
+{% extends 'admin_temp/layout.html' %}
+{% load web_filters %}
+{% load static %}
+{% block content %}
+
+
+
+
+<!-- Main Body -->
+<main class="main">
+<section class="slice-lg center">
+    <div class="container">
+        <div class="row justify-content-center card-login">
+            <div class="col-sm-6">
+              <h4>Nice to see you today!</h4>
+            </div>
+            <div class="col-lg-6 col-sm-12">
+                <div class="row typeface-palette cols-xs-space cols-sm-space cols-md-space">
+                    <div class="col-sm-12">
+{#                        <a>#}
+{#                            <div class=" row  align-content-center justify-content-center ">#}
+{#                                <div class="col-lg-12 col-md-12 padding-bottom-10">#}
+{#                                    <h4 class="gray">Sign in</h4>#}
+{#                                    <div class="form-group">#}
+{#                                        <input type="text" class="form-control" placeholder="Default">#}
+{#                                    </div>#}
+{#                                </div>#}
+{#                                <div class="col-lg-12 col-md-12 padding-bottom-10">#}
+{#                                    <div class="form-group">#}
+{#                                        <input type="text" class="form-control" placeholder="Default">#}
+{#                                    </div>#}
+{#                                </div>#}
+{#                                <div class="col-lg-12 col-md-12">#}
+{#                                    <div class="input-group-prepend">#}
+{#                                        <button class="btn btn-primary col-lg-12 col-md-12" type="button">Button</button>#}
+{#                                    </div>#}
+{#                                </div>#}
+{#                            </div>#}
+{#                        </a>#}
+
+                        <form class="form-type-material col-sm-12" method="post">
+                            {% csrf_token %}
+
+                            {% if form.errors %}
+                                <p>{{ form.errors }}</p>
+                            {% endif %}
+
+                            {% for field in form %}
+                                <div>
+                                    {% if field.errors %}
+                                        {% for error in field.errors %}
+                                            <p style="color: red">Error {{ error }}</p>
+                                        {% endfor %}
+                                    {% endif %}
+                                    <div class="form-group">
+                                        {{ field.label_tag }}
+                                        {{ field|addclass:'form-control' }}
+                                        <span class="helptext">{{ field.help_text }}</span>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                            <div>
+                                <a class="text-muted hover-primary fs-13 mt-2 mt-md-0" href="/password_reset/">
+                                    Forgot password?
+                                </a>
+                                <div class="row margin-top-10">
+                                    <button class="btn btn-primary col-lg-12 col-md-12" type="submit">Login</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+</main>
+<!-- Main Body -->
+
+
+{% endblock %}
