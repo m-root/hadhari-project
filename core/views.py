@@ -1,116 +1,221 @@
-from django.shortcuts import render
-from core.serializers import AccountSerializer, BranchSerializer, VolunteerSerializer
-from rest_framework import generics
-from core.models import Account, Branch, Volunteer
+from django.shortcuts import render, redirect, get_object_or_404
+from django.http import JsonResponse
+from pyproj import Proj, transform
+from django.conf import settings
 
+from core.forms import DaycareForm,OwnerForm
+from core.models import Daycare,Organisation
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+# Create your views here.
 import logging
 
-# Create your views here.
-log = logging.getLogger(__name__)
 
+logger = logging.getLogger('prj')
+
+
+# def index(request):
+#     context = {
+#         'google_maps_key': settings.GOOGLE_MAPS_API_KEY,
+#         'form' : DaycareForm()
+#     }
+#
+#     return render(request,'core/map.html',context)
 
 def index(request):
-    context = {}
-    context['page'] = 'profiles'
-    context['accounts'] = Account.objects.all()
+    context = {
+        'google_maps_key': settings.GOOGLE_MAPS_API_KEY,
+        'form' : DaycareForm()
+    }
+    return render(request,'core/index.html',context)
 
-    return render(request, 'core/index.html', context)
-
-
-class AccountList(generics.ListAPIView):
-    serializer_class = AccountSerializer
-
-    def get_queryset(self):
-        """
-        This view should return a list of all the accounts
-        for the currently authenticated user.
-        """
-        user = self.request.user
-        return Account.objects.filter()
+def details(request):
+    context = {
+        'google_maps_key': settings.GOOGLE_MAPS_API_KEY,
+        'form' : DaycareForm()
+    }
+    return render(request,'core/details.html',context)
 
 
-class BranchList(generics.ListAPIView):
-    serializer_class = BranchSerializer
+def listing(request):
 
-    def get_queryset(self):
-        """
-        This view should return a list of all the accounts
-        for the currently authenticated user.
-        """
-        # user = self.request.user
-        return Branch.objects.filter()
+    page = request.GET.get('page', 1)
 
+    daycares = Daycare.objects.all()
 
-from django.shortcuts import get_object_or_404
-from rest_framework import viewsets
-from rest_framework.response import Response
+    paginator = Paginator(daycares, 20)
+    try:
+        daycares = paginator.page(page)
+    except PageNotAnInteger:
+        daycares = paginator.page(1)
+    except EmptyPage:
+        daycares = paginator.page(paginator.num_pages)
 
-
-class VolunteerViewSet(viewsets.ViewSet):
-    """
-    A ViewSet for listing Volunteers.
-    """
-    def list(self, request):
-        # todo filter institution Transactions
-        queryset = Volunteer.objects.all()
-        serializer = VolunteerSerializer(queryset, many=True)
-        return Response(serializer.data)
-
-    """
-    A ViewSet for retrieving A Volunteer.
-    """
-    def retrieve(self, request, pk=None):
-        queryset = Volunteer.objects.all()
-        child = get_object_or_404(queryset, pk=pk)
-        serializer = VolunteerSerializer(child)
-        return Response(serializer.data)
-
-    def create(self, request):
-        data = request.data
-        Volunteer = Volunteer()
-        Volunteer.dob = data['date_of_birth']
-        Volunteer.Branch_id = data['Branch']
-        # Volunteer.picture
-        Volunteer.gender = data['gender']
-        Volunteer.guardians = data['guardians']
-        Volunteer.contact_number = data['contact_number']
-        Volunteer.residence = data['residence']
-        Volunteer.address = data['address']
-        Volunteer.save()
-
-def new_member(request):
-    # pass
-    return render(request, 'core/new_member.html', {})
-
-def edit_member(request):
-    # pass
-    return render(request, 'core/edit_member.html', {})
-
-def list_member(request):
-    # pass
-    return render(request, 'core/members.html', {})
-
-def member_details(request):
-    # pass
-    return render(request, 'core/member_details.html', {})
-
-def new_user(request):
-    # pass
-    return render(request, 'core/new_user.html', {})
-
-def edit_user(request):
-    # pass
-    return render(request, 'core/edit_user.html', {})
-
-def list_user(request):
-    # pass
-    return render(request, 'core/users.html', {})
-
-def user_details(request):
-    # pass
-    return render(request, 'core/user_details.html', {})
+    context = {
+        'daycare' : daycare_view,
+        'daycares' : daycares,
+        'google_maps_key': settings.GOOGLE_MAPS_API_KEY,
+        'form' : DaycareForm()
+    }
+    return render(request,'core/listing.html',context)
 
 
+def create_daycare(request):
+    if request.method == "POST":
+        form = DaycareForm(data=request.POST)
+        if form.is_valid():
+            daycare = form.save()
+
+            return redirect('/daycares/')
+    else:
+        form = DaycareForm()
+
+    return render(request, 'core/daycare/create.html', {'form':form,'google_maps_key':settings.GOOGLE_MAPS_API_KEY})
 
 
+def daycare_edit(request,pk):
+    daycare = Daycare.objects.get(pk=pk)
 
+    if request.method == "POST":
+        form = DaycareForm(data=request.POST)
+        if form.is_valid():
+            daycare = form.save()
+
+            return redirect('/')
+    else:
+        form = DaycareForm(instance=daycare)
+
+    return render(request, 'core/daycare/create.html', {'form':form,'google_maps_key':settings.GOOGLE_MAPS_API_KEY})
+
+
+def daycare_delete(request,pk):
+    daycare = Daycare.objects.get(pk=pk)
+    if request.method == "POST":
+        daycare.delete()
+        # todo add success message
+        return redirect('/')
+
+    return render(request, 'core/daycare/delete.html', {
+        'daycare':daycare,
+        'google_maps_key':settings.GOOGLE_MAPS_API_KEY
+    })
+
+
+def daycare_contact_create(request,pk):
+    if request.method == "POST":
+        form = DaycareForm(data=request.POST)
+        if form.is_valid():
+            daycare = form.save()
+
+
+            return redirect('/daycares/')
+    else:
+        form = DaycareForm()
+
+    return render(request, 'core/daycare/create.html', {'form':form})
+
+
+def daycare_owner_edit(request,pk):
+    daycare = Daycare.objects.get(pk=pk)
+
+    return render(request, 'core/owner/detail.html',{'owner':daycare.owner})
+
+
+def daycare_view(request, pk):
+    daycare = get_object_or_404(Daycare, pk=pk)
+
+
+    in_projection = Proj(init='epsg:4326')
+    out_projection = Proj(init='epsg:3857')
+
+    x, y = transform(in_projection, out_projection, daycare.location.coordinate.x, daycare.location.coordinate.y)
+
+    context = {
+        'daycare': daycare,
+        'lat': y,
+        'lng': x
+    }
+
+    return render(request, 'core/daycare/detail.html', context)
+
+
+def daycare_images(request, pk):
+    context = {
+        'daycare': get_object_or_404(Daycare, pk=pk)
+    }
+
+    return render(request, 'core/daycare/images.html', context)
+
+
+def daycare_contacts(request, pk):
+    context = {
+        'daycare': get_object_or_404(Daycare, pk=pk)
+    }
+
+    return render(request, 'core/daycare/contacts.html', context)
+
+
+def daycare_list(request,sub_domain=None):
+
+    in_projection = Proj(init='epsg:4326')
+    out_projection = Proj(init='epsg:3857')
+
+    if sub_domain:
+        daycares = Daycare.objects.filter(organisation=request.organisation)
+    else:
+        daycares = Daycare.objects.filter()
+
+    data = []
+
+    # data = { 'data': data }
+    for daycare in daycares:
+        daycare_ = dict()
+
+        x, y = transform(in_projection, out_projection, daycare.location.coordinate.x, daycare.location.coordinate.y)
+
+        daycare_['lat'] = y
+        daycare_['lng'] = x
+
+        daycare_['id'] = daycare.pk
+        daycare_['name'] = daycare.name
+
+        data.append(daycare_)
+
+    # contact_groups = ContactGroup.objects.all().order_by('-id')
+    # return render(request, 'core/daycare/daycare_list.html', data)
+    return JsonResponse(data,safe=False)
+
+from core.forms import AdminForm
+
+
+def admin_create(request):
+    if request.method == "POST":
+        form = AdminForm(data=request.POST)
+
+        if form.is_valid():
+            admin = form.save()
+
+            return redirect('/')
+    else:
+        form = AdminForm()
+
+    return render(request, 'core/admin/create.html', {'form':form})
+
+from core.forms import OrganisationForm
+
+
+def organisation_create(request):
+    if request.method == "POST":
+        form = OrganisationForm(data=request.POST)
+        if form.is_valid():
+            organisation = form.save()
+
+            return redirect('/organisations/')
+    else:
+        form = OrganisationForm()
+
+    return render(request, 'core/organisation/create.html', {'form':form})
+
+
+def organisation_list(request):
+
+    return render(request, 'core/organisation/list.html', {'organisations':Organisation.objects.all()})
