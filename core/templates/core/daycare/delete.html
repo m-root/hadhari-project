@@ -1,0 +1,15 @@
+{% extends 'admin_temp/layout.html' %}
+{% load static %}
+{% block content %}
+    <form method="post" action="/daycares/{{ daycare.pk }}/delete/">
+    {% csrf_token %}
+
+    <p>Are you sure to delete {{ daycare.name }} ?</p>
+
+    <input type="submit" value="Delete">
+
+    </form>
+
+
+
+{% endblock %}
