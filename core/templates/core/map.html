@@ -1,0 +1,279 @@
+{% extends 'core/layout.html' %}
+{% load myfilters %}
+
+{% block nav_form %}
+    <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2"
+               type="search"
+               name="q"
+                {% if request.GET.q %}
+                value="{{ request.GET.q }}"
+                {% endif %}
+               placeholder="Search Daycares">
+
+        <button class="btn btn-outline-info my-2 my-sm-0"
+                data-toggle="modal"
+                type="button"
+                data-target="#addNewModal"
+                data-whatever="@mdo">
+            <span class="fa fa-plus"></span>
+        </button>
+    </form>
+{% endblock %}
+
+{% block content %}
+    <style>
+
+        html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+
+        #map-canvas {
+            height: 600px;
+            width: 100%;
+            margin: auto;
+        }
+
+        /* IMPORTANT - fixes webkit infoWindow rendering */
+        #map-canvas img {
+            max-width: none;
+        }
+    </style>
+
+
+    <div>
+
+
+    {% if request.user.is_super_admin %}
+
+
+        <a href="/admins/create">Create Admin</a>
+
+    {% endif %}
+
+    {% if request.user.is_admin %}
+
+        <a href="/organisations">Organisations</a>
+        <a href="/organisations/create">Create Organisation</a>
+
+    {% endif %}
+
+
+
+    </div>
+    <div id="map-canvas"></div>
+
+{% endblock %}
+{% block script %}
+    <script type="text/javascript"
+            src="//maps.googleapis.com/maps/api/js?key={{ google_maps_key }}">
+    </script>
+    <script type="text/javascript">
+
+        function initialize() {
+
+            // create the geocoder
+            geocoder = new google.maps.Geocoder();
+
+            // set some default map details, initial center point, zoom and style
+            var mapOptions = {
+                center: new google.maps.LatLng(-1.281345358016285, 36.82239532470703),
+                zoom: 11,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            };
+
+            // create the map and reference the div#map-canvas container
+            map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+
+            // fetch the existing places (ajax)
+            // and put them on the map
+            fetchPlaces();
+
+            // todo
+            // map.data.loadGeoJson('/daycares/')
+
+        }
+
+        // fetch Places JSON from /data/places
+        // loop through and populate the map with markers
+        var fetchPlaces = function () {
+
+            var infowindow = new google.maps.InfoWindow({
+                content: ''
+            });
+
+            jQuery.ajax({
+                url: '/daycares/',
+                dataType: 'json',
+                success: function (response) {
+                    // loop through places and add markers
+                    for (let p in response) {
+
+                        //create gmap latlng obj
+                        let tmpLatLng = new google.maps.LatLng(response[p]['lat'], response[p]['lng']);
+
+                        // make and place map maker.
+                        var marker = new google.maps.Marker({
+                            map: map,
+                            position: tmpLatLng,
+                            title: response[p]['name'] // + "<br>" + places[p].geo_name
+                        });
+
+                        let infoWindowHtml = '<b>' + response[p]['name']
+                            + '<br><a href="/daycares/'
+                            + response[p]['id']
+                            + '/">View </a> ';
+
+                        bindInfoWindow(marker, map, infowindow, infoWindowHtml);
+
+                        // not currently used but good to keep track of markers
+                        // markers.push(marker);
+
+                    }
+
+                }
+
+            })
+
+
+        };
+
+        // binds a map marker and infoWindow together on click
+        var bindInfoWindow = function (marker, map, infowindow, html) {
+            google.maps.event.addListener(marker, 'click', function () {
+                infowindow.setContent(html);
+                infowindow.open(map, marker);
+            });
+        };
+
+        jQuery(document).ready(function () {
+
+            var geocoder;
+            var map;
+            var places;
+            var markers = [];
+
+            // when page is ready, initialize the map!
+            google.maps.event.addDomListener(window, 'load', initialize);
+            // add location button event
+            jQuery("form").submit(function (e) {
+
+                // the name form field value
+                var name = jQuery("#place_name").val();
+
+                // get the location text field value
+                var loc = jQuery("#location").val();
+                console.log("user entered location = " + loc);
+
+                geocoder.geocode({'address': loc}, function (results, status) {
+                    if (status == google.maps.GeocoderStatus.OK) {
+
+                        // log out results from geocoding
+                        console.log("geocoding results");
+                        console.log(results);
+
+                        // reposition map to the first returned location
+                        map.setCenter(results[0].geometry.location);
+
+                        // put marker on map
+                        var marker = new google.maps.Marker({
+                            map: map,
+                            position: results[0].geometry.location
+                        });
+
+                        bindInfoWindow(marker, map, infowindow, places[p].name + "<br>" + places[p].geo_name);
+
+                        // not currently used but good to keep track of markers
+                        markers.push(marker);
+
+                        // preparing data for form posting
+                        var lat = results[0].geometry.location.lat();
+                        var lng = results[0].geometry.location.lng();
+                        var loc_name = results[0].formatted_address;
+
+                        // send first location from results to server as new location
+                        jQuery.ajax({
+                            url: '/add_place',
+                            dataType: 'json',
+                            type: 'POST',
+                            data: {
+                                name: name,
+                                latlng: lat + "," + lng,
+                                geo_name: loc_name
+                            },
+                            success: function (response) {
+                                // success - for now just log it
+                                console.log(response);
+
+                            },
+                            error: function (err) {
+
+                                // do error checking
+                                alert("something went wrong");
+                                console.error(err);
+                            }
+                        });
+
+
+                    } else {
+                        alert("Try again. Geocode was not successful for the following reason: " + status);
+                    }
+                });
+
+
+                e.preventDefault();
+                return false;
+
+            });
+
+
+        });
+
+
+    </script>
+{% endblock %}
+
+
+{% block modal %}
+
+    <div class="modal fade" id="addNewModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog  modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Add new </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true" class="fa fa-times"></span>
+                    </button>
+                </div>
+
+                <div class="modal-body">
+                    <form id="add-new-form" method="post" action="/daycares/create">{% csrf_token %}
+                        {% for field in form %}
+                        <div>
+                          {% if field.errors %}
+                            {% for error in field.errors %}
+                              <p style="color: red">Error {{ error }}</p>
+                            {% endfor %}
+                          {% endif %}
+                          <div class="form-group">
+                            {{ field.label_tag }}
+                            {{ field|addclass:'form-control' }}
+                            <span class="helptext">{{ field.help_text }}</span>
+                        </div>
+                        </div>
+                        {% endfor %}
+                        </form>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" id="btn-reset">Reset</button>
+                    <button type="button" class="btn btn-primary" id="btn-save">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

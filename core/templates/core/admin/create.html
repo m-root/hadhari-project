@@ -1,0 +1,74 @@
+{% extends 'admin_temp/layout.html' %}
+{% load static %}
+{% block content %}
+    <style type="text/css">
+        #map {
+            width: 500px;
+            height: 300px;
+        }
+    </style>
+
+
+    The user will receive an email with a link to set a password and complete the account setup
+
+
+
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-12 col-sm-12">
+                    <div class="row typeface-palette cols-xs-space cols-sm-space cols-md-space">
+                        <div class="col-sm-12">
+                            <a>
+                                <div class="typeface-entry">
+                                    <span class="badge badge-md typeface-badge badge-pill bg-primary text-white">badge</span>
+                                    <h3 class="heading display-3 font-weight-400 text-dark">
+                                       Heading
+                                    </h3>
+
+                                    <form method="post">{% csrf_token %}
+                                        {% for field in form %}
+                                            <div>
+                                                {% if field.errors %}
+                                                    {% for error in field.errors %}
+                                                        <p style="color: red">Error {{ error }}</p>
+                                                    {% endfor %}
+                                                {% endif %}
+                                                <div>
+{#                            <div class="col-lg-12 col-md-12">#}
+{#                                <div class="form-group has-floating-label">#}
+{#                                    <label class="control-label">Floating label</label>#}
+{#                                    <input type="text" class="form-control">#}
+
+                                                    <span class=""> {{ field.label_tag }}</span>
+                                                    <span class="">{{ field }}</span>
+                                                    <span class="helptext">{{ field.help_text }}</span>
+{#                                </div>#}
+{#                            </div>#}
+{#                                                    #}
+
+                                                </div>
+                                            </div>
+                                        {% endfor %}
+
+
+                                        <input type="submit" value="Submit">
+                                    </form>
+                                </div>
+                            </a>
+                        </div>
+
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+{% endblock %}
+
+
+
+
+
+

@@ -1,0 +1,29 @@
+{% extends 'admin_temp/layout.html' %}
+{% load static %}
+{% block content %}
+    <form method="post">{% csrf_token %}
+        {% for field in form %}
+            <div>
+                {% if field.errors %}
+                    {% for error in field.errors %}
+                        <p style="color: red">Error {{ error }}</p>
+                    {% endfor %}
+                {% endif %}
+                <div>
+                    {{ field.label_tag }}
+                    {{ field }}
+                    <span class="helptext">{{ field.help_text }}</span>
+                </div>
+            </div>
+        {% endfor %}
+
+
+        <input type="submit" value="Submit">
+    </form>
+
+
+{% endblock %}
+
+{% block script %}
+
+{% endblock %}

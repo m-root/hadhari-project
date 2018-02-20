@@ -1,0 +1,42 @@
+{% extends 'admin_temp/layout.html' %}
+{% load static %}
+{% block content %}
+
+    <div class="card text-center">
+        <div class="card-header">
+            <ul class="nav nav-tabs card-header-tabs">
+                <li class="nav-item">
+                    <a class="nav-link" href="/daycares/{{ daycare.pk }}/">Details</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/daycares/{{ daycare.pk }}/images">Images</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="/daycares/{{ daycare.pk }}/contacts">Contacts</a>
+                </li>
+            </ul>
+
+
+
+        </div>
+        <div class="card-body">
+
+            <h4>Contacts</h4>
+            <a href="/">Add </a>
+            {% for image in daycare.contact_set.all %}
+                <div>{{ image.phone }} {{ image.email }}</div>
+            {% empty %}
+                <div>No Contacts</div>
+            {% endfor %}
+
+
+
+        </div>
+    <div class="card-footer text-muted">
+    2 days ago
+  </div>
+    </div>
+
+
+
+{% endblock %}

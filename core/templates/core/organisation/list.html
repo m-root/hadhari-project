@@ -1,0 +1,34 @@
+{% extends 'admin_temp/layout.html' %}
+{% load static %}
+{% block content %}
+        <a href="/organisations/create">Create Organisation</a>
+
+    <ul>
+
+    {% for organisation in organisations %}
+        <li>
+
+        {{ organisation.name }}<br>
+
+            sub domain {{ organisation.id }}
+
+            <p>
+
+            <a href="/organisations/{{ organisation.pk }}/daycares/create">Add Daycares</a>
+            <a href="/organisations/{{ organisation.pk }}/daycares">Daycares</a>
+
+            </p>
+
+            <p>
+
+            <a href="/organisations/{{ organisation.pk }}/members/create">Add Members</a>
+            <a href="/organisations/{{ organisation.pk }}/members">Members</a>
+
+            </p>
+
+        </li>
+    {% endfor %}
+
+    </ul>
+
+{% endblock %}

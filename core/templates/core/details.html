@@ -1,0 +1,203 @@
+{% extends 'frontend/layout_front.html' %}
+{% load static %}
+{% block content %}
+
+
+
+
+<!-- Slider
+================================================== -->
+<div class=" ">
+	<div id="">
+		<div id="singleListingMap" data-latitude="40.70437865245596" data-longitude="-73.98674011230469" data-map-icon="im im-icon-Map2"></div>
+{#		<a href="#" id="streetView">Street View</a>#}
+	</div>
+</div>
+
+
+{#<div id="map" data-map-zoom="12">#}
+{#<!-- map goes here -->#}
+{#</div>#}
+
+<!-- Content
+================================================== -->
+<div class="container margin-bottom-40">
+	<div class="row">
+{#	<div class="row sticky-wrapper">#}
+		<div class="col-lg-8 col-md-8 padding-right-30">
+
+			<!-- Titlebar -->
+			<div id="titlebar" class="listing-titlebar">
+				<div class="listing-titlebar-title">
+					<h2>Burger House </h2>
+{#					<h2>Burger House <span class="listing-tag">Eat & Drink</span></h2>#}
+					<span>
+						<a href="#listing-location" class="listing-address">
+							<i class="fa fa-map-marker"></i>
+							2726 Shinn Street, New York
+						</a>
+					</span>
+{#					<div class="star-rating" data-rating="5">#}
+{#						<div class="rating-counter"><a href="#listing-reviews">(31 reviews)</a></div>#}
+{#					</div>#}
+				</div>
+			</div>
+
+			<!-- Listing Nav -->
+			<div class="listing-nav-container">
+{#			<div id="listing-nav" class="listing-nav-container">#}
+				<ul class="listing-nav">
+					<li><a href="#listing-overview" class="active">Overview</a></li>
+					<li><a href="#listing-pricing-list">Pricing</a></li>
+
+				</ul>
+			</div>
+
+			<!-- Overview -->
+			<div id="listing-overview" class="listing-section">
+
+				<!-- Description -->
+
+				<p>
+					Ut euismod ultricies sollicitudin. Curabitur sed dapibus nulla. Nulla eget iaculis lectus. Mauris ac maximus neque. Nam in mauris quis libero sodales eleifend. Morbi varius, nulla sit amet rutrum elementum, est elit finibus tellus, ut tristique elit risus at metus.
+				</p>
+
+				<p>
+					 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas in pulvinar neque. Nulla finibus lobortis pulvinar. Donec a consectetur nulla. Nulla posuere sapien vitae lectus suscipit, et pulvinar nisi tincidunt. Aliquam erat volutpat. Curabitur convallis fringilla diam sed aliquam. Sed tempor iaculis massa faucibus feugiat. In fermentum facilisis massa, a consequat purus viverra.
+				</p>
+
+				<!-- Amenities -->
+				<h3 class="listing-desc-headline">Amenities</h3>
+				<ul class="listing-features checkboxes margin-top-0">
+					<li>Elevator in building</li>
+					<li>Friendly workspace</li>
+					<li>Instant Book</li>
+					<li>Wireless Internet</li>
+					<li>Free parking on premises</li>
+					<li>Free parking on street</li>
+				</ul>
+			</div>
+
+
+			<!-- Food Menu -->
+			<div id="listing-pricing-list" class="listing-section">
+				<h3 class="listing-desc-headline margin-top-70 margin-bottom-30">Pricing</h3>
+
+				<div class="show-more">
+					<div class="pricing-list-container">
+
+						<!-- Food List -->
+						<h4>Products & Services</h4>
+						<ul>
+							<li>
+								<h5>Classic Burger</h5>
+								<p>Beef, salad, mayonnaise, spicey relish, cheese</p>
+								<span>$6</span>
+							</li>
+							<li>
+								<h5>Cheddar Burger</h5>
+								<p>Cheddar cheese, lettuce, tomato, onion, dill pickles</p>
+								<span>$6</span>
+							</li>
+							<li>
+								<h5>Veggie Burger</h5>
+								<p>Panko crumbed and fried, grilled peppers and mushroom</p>
+								<span>$6</span>
+							</li>
+							<li>
+								<h5>Chicken Burger</h5>
+								<p>Cheese, chicken fillet, avocado, bacon, tomatoes, basil</p>
+								<span>$6</span>
+							</li>
+						</ul>
+
+						<!-- Food List -->
+{#						<h4>Products</h4>#}
+{#						<ul>#}
+{#							<li>#}
+{#								<h5>Frozen Shake</h5>#}
+{#								<span>$4</span>#}
+{#							</li>#}
+{#							<li>#}
+{#								<h5>Orange Juice</h5>#}
+{#								<span>$4</span>#}
+{#							</li>#}
+{#							<li>#}
+{#								<h5>Beer</h5>#}
+{#								<span>$4</span>#}
+{#							</li>#}
+{#							<li>#}
+{#								<h5>Water</h5>#}
+{#								<span>Free</span>#}
+{#							</li>#}
+{#						</ul>#}
+
+					</div>
+				</div>
+				<a href="#" class="show-more-button" data-more-title="Show More" data-less-title="Show Less"><i class="fa fa-angle-down"></i></a>
+			</div>
+			<!-- Food Menu / End -->
+
+
+		</div>
+
+
+		<!-- Sidebar
+		================================================== -->
+		<div class="col-lg-4 col-md-4 margin-top-75 sticky">
+
+			<!-- Contact -->
+			<div class="boxed-widget">
+				<h3><i class="sl sl-icon-pin"></i> Contact</h3>
+				<ul class="listing-details-sidebar">
+					<li><i class="sl sl-icon-phone"></i> (123) 123-456</li>
+{#					<li><i class="sl sl-icon-globe"></i> <a href="#">http://example.com</a></li>#}
+{#					<li><i class="fa fa-envelope-o"></i> <a href="#"><span class="__cf_email__" data-cfemail="157c7b737a55706d74786579703b767a78">[email&#160;protected]</span><script data-cfhash='f9e31' type="text/javascript">/* <![CDATA[ */!function(t,e,r,n,c,a,p){try{t=document.currentScript||function(){for(t=document.getElementsByTagName('script'),e=t.length;e--;)if(t[e].getAttribute('data-cfhash'))return t[e]}();if(t&&(c=t.previousSibling)){p=t.parentNode;if(a=c.getAttribute('data-cfemail')){for(e='',r='0x'+a.substr(0,2)|0,n=2;a.length-n;n+=2)e+='%'+('0'+('0x'+a.substr(n,2)^r).toString(16)).slice(-2);p.replaceChild(document.createTextNode(decodeURIComponent(e)),c)}p.removeChild(t)}}catch(u){}}()/* ]]> */</script></a></li>#}
+				</ul>
+
+{#				<ul class="listing-details-sidebar social-profiles">#}
+{#					<li><a href="#" class="facebook-profile"><i class="fa fa-facebook-square"></i> Facebook</a></li>#}
+{#					<li><a href="#" class="twitter-profile"><i class="fa fa-twitter"></i> Twitter</a></li>#}
+{#					<!-- <li><a href="#" class="gplus-profile"><i class="fa fa-google-plus"></i> Google Plus</a></li> -->#}
+{#				</ul>#}
+
+				<!-- Reply to review popup -->
+				<div id="small-dialog" class="zoom-anim-dialog mfp-hide">
+{#					<div class="small-dialog-header">#}
+{#						<h3>Send Message</h3>#}
+{#					</div>#}
+					<div class="message-reply margin-top-0">
+						<textarea cols="40" rows="3" placeholder="Your message to Burger House"></textarea>
+						<button class="button">Send Message</button>
+					</div>
+				</div>
+
+				<a href="#small-dialog" class="send-message-to-owner button popup-with-zoom-anim"><i class="sl sl-icon-envelope-open"></i> Send Message</a>
+			</div>
+
+			<!-- Opening Hours -->
+			<div class="boxed-widget opening-hours margin-top-35">
+{#				<div class="listing-badge now-open">Now Open</div>#}
+				<h3><i class="sl sl-icon-clock"></i> Opening Hours</h3>
+				<ul>
+				<ul>
+					<li>Monday <span>9 AM - 5 PM</span></li>
+					<li>Tuesday <span>9 AM - 5 PM</span></li>
+					<li>Wednesday <span>9 AM - 5 PM</span></li>
+					<li>Thursday <span>9 AM - 5 PM</span></li>
+					<li>Friday <span>9 AM - 5 PM</span></li>
+					<li>Saturday <span>9 AM - 3 PM</span></li>
+					<li>Sunday <span>Closed</span></li>
+				</ul>
+			</div>
+
+			<!-- Share / Like -->
+
+
+		</div>
+		<!-- Sidebar / End -->
+
+	</div>
+</div>
+
+{% endblock  %}
